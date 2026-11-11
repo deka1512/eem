@@ -4,7 +4,7 @@ Site institutionnel construit avec Nuxt 4, Vue 3, TypeScript et Nuxt UI.
 
 ## Installation locale
 
-- Node.js 20 ou supérieur
+- Node.js 20.19 ou supérieur (ou Node.js 22.12+)
 - npm
 
 ```bash
