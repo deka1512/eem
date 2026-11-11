@@ -27,5 +27,5 @@ const closeMenu=()=>{isMenuOpen.value=false}
 .header-cta{display:inline-flex;flex:none;align-items:center;gap:.4rem;border-radius:.6rem;padding:.7rem .9rem;background:var(--eem-primary);color:#fff;font-size:.8rem;font-weight:750;text-decoration:none}.header-cta:hover{background:var(--eem-primary-hover)}
 .menu-toggle{display:none;width:2.7rem;height:2.7rem;place-items:center;border:1px solid var(--eem-border);border-radius:.65rem;background:#fff;color:var(--eem-secondary);font-size:1.25rem}
 .mobile-nav{display:grid;gap:.15rem;padding:0 0 1rem}.mobile-nav a{border-radius:.5rem;padding:.75rem .85rem;color:var(--eem-text);font-weight:650;text-decoration:none}.mobile-nav a:hover{background:var(--eem-surface);color:var(--eem-secondary)}.mobile-nav .mobile-nav__prayer{color:var(--eem-primary)}
-@media(max-width:1080px){.desktop-nav,.header-cta{display:none}.menu-toggle{display:grid}}
+@media(max-width:1080px){.desktop-nav,.header-cta{display:none}.menu-toggle{display:grid}}@media(min-width:1081px){.mobile-nav{display:none}}
 </style>
