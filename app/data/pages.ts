@@ -1,3 +1,5 @@
+import { church } from '~/data/church'
+
 export interface ContentSection {
   title: string
   paragraphs: string[]
@@ -128,8 +130,8 @@ export const staticPages: Record<string, StaticPage> = {
         reference: 'Actes 17:11'
       }
     ],
-    actionLabel: 'Voir les actualités',
-    actionTo: '/actualites'
+    actionLabel: 'Contacter l’Église',
+    actionTo: '/contact'
   },
   actualites: {
     title: 'Actualités',
@@ -153,7 +155,7 @@ export const staticPages: Record<string, StaticPage> = {
       }
     ],
     actionLabel: 'Suivre l’EEM sur Facebook',
-    actionTo: 'https://www.facebook.com/people/%C3%89glise-%C3%89vang%C3%A9lique-Les-MoissonneursEEM/61593163313292/'
+    actionTo: church.facebookUrl
   },
   contact: {
     title: 'Contact',
