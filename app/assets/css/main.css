@@ -1,0 +1,21 @@
+@import "@fontsource-variable/manrope";
+@import "@fontsource-variable/inter";
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+:root{
+--eem-primary:#1687e8;--eem-primary-hover:#0873cc;--eem-secondary:#07546b;--eem-accent:#d9b98c;
+--eem-background:#fff;--eem-surface:#e5f5f8;--eem-surface-hover:#d7edf2;--eem-text:#263238;
+--eem-text-muted:#64748b;--eem-border:#e2e8f0;--eem-font-heading:"Manrope Variable",Manrope,sans-serif;
+--eem-font-body:"Inter Variable",Inter,sans-serif;--eem-container-width:1280px;--eem-radius-card:16px;
+--eem-shadow-card:0 8px 28px rgb(7 84 107 / 7%)
+}
+html{scroll-behavior:smooth;scroll-padding-top:6rem}
+body{min-width:320px;margin:0;background:var(--eem-background);color:var(--eem-text);font-family:var(--eem-font-body);font-size:16px;line-height:1.65;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5,h6{color:var(--eem-secondary);font-family:var(--eem-font-heading);font-weight:750;line-height:1.15;letter-spacing:-.025em}
+a{color:inherit}button,input,textarea,select{font:inherit}button,a{-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:3px solid rgb(22 135 232 / 45%);outline-offset:3px}
+::selection{background:rgb(22 135 232 / 18%)}
+.page-section{padding-block:clamp(3.5rem,7vw,6rem)}.page-section--soft{background:var(--eem-surface)}
+.eyebrow{color:var(--eem-primary);font-size:.75rem;font-weight:750;letter-spacing:.13em;text-transform:uppercase}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
