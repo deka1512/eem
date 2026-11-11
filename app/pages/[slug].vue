@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import {church} from '~/data/church'
 const route=useRoute()
 const sections:Record<string,{title:string;description:string}>={
   eglise:{title:'L’Église',description:'Découvrez l’Église Évangélique Les Moissonneurs, sa présentation, sa vision et son engagement.'},
@@ -17,9 +18,9 @@ useSeoMeta({title:()=>section.title+' | Église Évangélique Les Moissonneurs',
 <section class="section-page"><PageContainer>
 <p class="eyebrow">Église Évangélique Les Moissonneurs</p><h1>{{section.title}}</h1><p class="section-page__description">{{section.description}}</p>
 <div v-if="route.params.slug==='contact'" class="contact-details">
-<div><UIcon name="i-lucide-map-pin"/><div><strong>Adresse</strong><p>N°162, avenue des Fresias, 11ème Rue, C. Limete Résidentiel, Kinshasa, RDC</p></div></div>
-<div><UIcon name="i-lucide-phone"/><div><strong>Téléphone / WhatsApp</strong><p><a href="tel:+243963921063">+243 963 921 063</a></p></div></div>
-<div><UIcon name="i-lucide-mail"/><div><strong>E-mail</strong><p><a href="mailto:egliselesmoissonneurs@gmail.com">egliselesmoissonneurs@gmail.com</a></p></div></div>
+<div><UIcon name="i-lucide-map-pin"/><div><strong>Adresse</strong><p>{{church.address}}</p></div></div>
+<div><UIcon name="i-lucide-phone"/><div><strong>Téléphone / WhatsApp</strong><p><a :href="church.phoneLink">{{church.phone}}</a></p></div></div>
+<div><UIcon name="i-lucide-mail"/><div><strong>E-mail</strong><p><a :href="`mailto:${church.email}`">{{church.email}}</a></p></div></div>
 </div>
 <div v-else class="section-page__notice"><UIcon name="i-lucide-info"/><p>Cette rubrique sera enrichie avec les informations et les contenus validés par l’Église.</p></div>
 <BaseButton to="/" variant="secondary">Retour à l’accueil</BaseButton>
