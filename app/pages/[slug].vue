@@ -114,5 +114,5 @@ useSeoMeta({
 .action-link--primary:hover{background:var(--eem-primary-hover)}
 .page-action{display:flex;justify-content:center;margin-top:3rem}
 @media(max-width:950px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.personal-contact{align-items:flex-start;flex-direction:column}}
-@media(max-width:560px){.contact-grid{grid-template-columns:1fr}.content-section{grid-template-columns:2rem 1fr;gap:.7rem}.personal-contact{padding:1.3rem}.personal-contact__actions{width:100%;flex-direction:column}.action-link{width:100%}}
+@media(max-width:560px){.contact-grid{grid-template-columns:1fr}.personal-contact{padding:1.3rem}.personal-contact__actions{width:100%;flex-direction:column}.action-link{width:100%}}
 </style>
