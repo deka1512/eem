@@ -12,7 +12,7 @@ if (!page) {
 
 const isContact = slug === 'contact'
 const needsPersonalContact = slug === 'priere' || slug === 'rendez-vous'
-const whatsappUrl = 'https://wa.me/243963921063'
+const whatsappUrl = church.whatsappLink
 const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(church.address)
 
 useSeoMeta({
