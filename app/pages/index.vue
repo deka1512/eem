@@ -53,10 +53,9 @@ useSeoMeta({
           </div>
           <p class="home-hero__address"><UIcon name="i-lucide-map-pin" /> Limete Résidentiel · Kinshasa</p>
         </div>
-        <div class="home-hero__visual" aria-hidden="true">
-          <div class="home-hero__symbol"><UIcon name="i-lucide-wheat" /></div>
-          <span>Foi · Communion · Engagement</span>
-          <small>Matthieu 9:37-38</small>
+        <div class="home-hero__visual">
+          <img src="https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=1200&q=85" alt="Communauté réunie dans un lieu de culte" fetchpriority="high">
+          <div class="home-hero__visual-caption"><span>Foi · Communion · Engagement</span><small>Matthieu 9:37-38</small></div>
         </div>
       </PageContainer>
     </section>
@@ -72,6 +71,33 @@ useSeoMeta({
             <p>{{ church.description }} Notre désir est de faire connaître Jésus-Christ et d’encourager chacun à découvrir et approfondir la foi chrétienne.</p>
             <BaseButton to="/eglise" variant="secondary">Mieux connaître l’Église <UIcon name="i-lucide-arrow-right" /></BaseButton>
           </div>
+        </div>
+      </PageContainer>
+    </section>
+
+    <section class="page-section leadership-section">
+      <PageContainer>
+        <div class="leadership-heading">
+          <SectionHeading eyebrow="Servir ensemble" title="Une équipe au service de la vision." description="Derrière la vie de l’Église, des femmes et des hommes s’engagent dans l’accueil, la prière, l’enseignement et l’accompagnement de la communauté." />
+          <NuxtLink to="/eglise" class="leadership-more">Découvrir notre Église <UIcon name="i-lucide-arrow-up-right" /></NuxtLink>
+        </div>
+        <div class="leadership-grid">
+          <article class="leader-card leader-card--featured">
+            <img src="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1000&q=85" alt="Intérieur lumineux d’une église" loading="lazy">
+            <div class="leader-card__body"><span class="leader-card__role">Direction pastorale</span><h3>Conduire et accompagner</h3><p>Un ministère consacré à la prédication de la Parole, à la vision spirituelle et à l’accompagnement pastoral.</p></div>
+          </article>
+          <article class="leader-card">
+            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=720&q=85" alt="Personnes réunies dans un moment de partage" loading="lazy">
+            <div class="leader-card__body"><span class="leader-card__role">Communion fraternelle</span><h3>Accueillir et rassembler</h3><p>Créer des liens, prendre soin les uns des autres et faire vivre une communauté accueillante.</p></div>
+          </article>
+          <article class="leader-card">
+            <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=720&q=85" alt="Équipe échangeant autour d’un projet" loading="lazy">
+            <div class="leader-card__body"><span class="leader-card__role">Service & organisation</span><h3>Faire grandir les initiatives</h3><p>Des collaborateurs mobilisés pour soutenir les activités et le bon fonctionnement de l’Église.</p></div>
+          </article>
+          <article class="leader-card">
+            <img src="https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=720&q=85" alt="Groupe partageant un moment ensemble" loading="lazy">
+            <div class="leader-card__body"><span class="leader-card__role">Prière & accompagnement</span><h3>Écouter et soutenir</h3><p>Être présents, porter les sujets de prière et encourager chacun dans son cheminement de foi.</p></div>
+          </article>
         </div>
       </PageContainer>
     </section>
@@ -154,10 +180,24 @@ useSeoMeta({
 .home-hero__description{max-width:590px;color:var(--eem-text-muted);font-size:clamp(1rem,1.6vw,1.15rem)}
 .home-hero__actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
 .home-hero__address{display:flex;align-items:center;gap:.45rem;margin-top:1.5rem;color:var(--eem-text-muted);font-size:.82rem}
-.home-hero__visual{display:grid;min-height:360px;place-items:center;align-content:center;gap:1rem;border:1px solid rgb(7 84 107 / 10%);border-radius:2rem;background:radial-gradient(circle,#fff 0%,#e5f5f8 72%);color:var(--eem-secondary)}
-.home-hero__symbol{display:grid;width:170px;height:170px;place-items:center;border:1px solid rgb(7 84 107 / 15%);border-radius:50%;background:rgb(255 255 255 / 75%);font-size:5rem;box-shadow:0 20px 70px rgb(7 84 107 / 10%)}
-.home-hero__visual>span{color:var(--eem-text-muted);font-size:.8rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase}
-.home-hero__visual>small{color:var(--eem-primary);font-size:.8rem;font-weight:700}
+.home-hero__visual{position:relative;min-height:390px;overflow:hidden;border-radius:2rem;background:var(--eem-secondary);box-shadow:0 24px 65px rgb(7 84 107 / 16%)}
+.home-hero__visual>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.home-hero__visual::after{position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgb(3 35 47 / 78%));content:""}
+.home-hero__visual-caption{position:absolute;z-index:1;right:1.5rem;bottom:1.5rem;left:1.5rem;display:grid;gap:.35rem;color:#fff}
+.home-hero__visual-caption span{font-size:.8rem;font-weight:750;letter-spacing:.12em;text-transform:uppercase}
+.home-hero__visual-caption small{font-size:.8rem;font-weight:650}
+.leadership-section{background:#fff}
+.leadership-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:2rem;margin-bottom:2rem}
+.leadership-more{display:inline-flex;flex:none;align-items:center;gap:.4rem;margin-bottom:2rem;color:var(--eem-primary);font-size:.85rem;font-weight:750;text-decoration:none}
+.leadership-grid{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:1.1rem}
+.leader-card{overflow:hidden;border:1px solid var(--eem-border);border-radius:1.1rem;background:#fff;box-shadow:var(--eem-shadow-card)}
+.leader-card--featured{grid-row:span 2}
+.leader-card>img{display:block;width:100%;height:190px;object-fit:cover}
+.leader-card--featured>img{height:300px}
+.leader-card__body{padding:1.15rem}
+.leader-card__role{color:var(--eem-primary);font-size:.7rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase}
+.leader-card h3{margin:.45rem 0;font-size:1.05rem}
+.leader-card p{margin:0;color:var(--eem-text-muted);font-size:.84rem;line-height:1.6}
 .welcome-grid{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}.welcome-grid h2{max-width:520px;margin:.6rem 0 0;font-size:clamp(1.8rem,3.5vw,2.8rem)}
 .welcome-grid>div:last-child>p{margin-top:0;color:var(--eem-text-muted);font-size:1.05rem}.welcome-grid :deep(.base-button){margin-top:.7rem}
 .mission-section{background:var(--eem-surface)}
@@ -180,6 +220,6 @@ useSeoMeta({
 .home-invitation h2{max-width:650px;margin:.6rem 0;color:#fff;font-size:clamp(1.8rem,3.5vw,2.8rem)}
 .home-invitation p:not(.eyebrow){max-width:680px;color:rgb(255 255 255 / 75%)}
 .home-invitation .eyebrow{color:#b9e6f0}.home-invitation__actions{display:flex;flex:none;flex-wrap:wrap;gap:.7rem}
-@media(max-width:850px){.home-hero :deep(.page-container){grid-template-columns:1fr;min-height:auto;padding-block:4rem}.home-hero__visual{min-height:250px}.home-hero__symbol{width:120px;height:120px;font-size:3.5rem}.welcome-grid{grid-template-columns:1fr;gap:1.5rem}.mission-heading{align-items:flex-start;flex-direction:column;gap:0}.mission-reference{margin-bottom:1.5rem}.commitments-grid,.discovery-grid{grid-template-columns:1fr 1fr}.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-invitation :deep(.page-container){align-items:flex-start;flex-direction:column}}
-@media(max-width:560px){.home-hero h1{font-size:clamp(2.3rem,11vw,3.4rem)}.home-hero__actions,.home-invitation__actions{width:100%;flex-direction:column}.home-hero__actions :deep(.base-button),.home-invitation__actions :deep(.base-button){width:100%}.commitments-grid,.discovery-grid,.cards-grid{grid-template-columns:1fr}.discovery-card{min-height:210px}}
+@media(max-width:850px){.home-hero :deep(.page-container){grid-template-columns:1fr;min-height:auto;padding-block:4rem}.home-hero__visual{min-height:280px}.leadership-heading{align-items:flex-start;flex-direction:column;gap:0}.leadership-more{margin:0 0 1.5rem}.leadership-grid{grid-template-columns:1fr 1fr}.leader-card--featured{grid-row:auto}.leader-card--featured>img{height:220px}.welcome-grid{grid-template-columns:1fr;gap:1.5rem}.mission-heading{align-items:flex-start;flex-direction:column;gap:0}.mission-reference{margin-bottom:1.5rem}.commitments-grid,.discovery-grid{grid-template-columns:1fr 1fr}.cards-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.home-invitation :deep(.page-container){align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.home-hero h1{font-size:clamp(2.3rem,11vw,3.4rem)}.home-hero__actions,.home-invitation__actions{width:100%;flex-direction:column}.home-hero__actions :deep(.base-button),.home-invitation__actions :deep(.base-button){width:100%}.commitments-grid,.discovery-grid,.cards-grid,.leadership-grid{grid-template-columns:1fr}.leader-card>img,.leader-card--featured>img{height:210px}.discovery-card{min-height:210px}}
 </style>
