@@ -1,9 +1,12 @@
+<script setup lang="ts">
+import {church} from '~/data/church'
+</script>
 <template>
 <footer class="site-footer"><PageContainer><div class="site-footer__main">
-<div class="site-footer__brand"><NuxtLink to="/" class="footer-brand"><span class="footer-brand__mark"><UIcon name="i-lucide-wheat" /></span><span><strong>Les Moissonneurs</strong><small>Église Évangélique · EEM</small></span></NuxtLink><p>Une communauté chrétienne engagée à annoncer l’Évangile de Jésus-Christ et à sauver des âmes.</p></div>
+<div class="site-footer__brand"><NuxtLink to="/" class="footer-brand"><span class="footer-brand__mark"><UIcon name="i-lucide-wheat" /></span><span><strong>Les Moissonneurs</strong><small>Église Évangélique · EEM</small></span></NuxtLink><p>{{church.description}}</p></div>
 <div class="site-footer__column"><h2>Découvrir</h2><NuxtLink to="/eglise">L’Église</NuxtLink><NuxtLink to="/vie-de-leglise">Vie de l’Église</NuxtLink><NuxtLink to="/enseignements">Enseignements</NuxtLink><NuxtLink to="/actualites">Actualités</NuxtLink></div>
-<div class="site-footer__column"><h2>Nous contacter</h2><a href="tel:+243963921063">+243 963 921 063</a><a href="mailto:egliselesmoissonneurs@gmail.com">egliselesmoissonneurs@gmail.com</a><p>N°162, avenue des Fresias, 11ème Rue, C. Limete Résidentiel, Kinshasa, RDC</p></div>
-<div class="site-footer__column"><h2>À votre écoute</h2><NuxtLink to="/priere">Demande de prière</NuxtLink><NuxtLink to="/rendez-vous">Demander un rendez-vous</NuxtLink><a href="https://www.facebook.com/people/%C3%89glise-%C3%89vang%C3%A9lique-Les-MoissonneursEEM/61593163313292/" target="_blank" rel="noopener noreferrer">Facebook <UIcon name="i-lucide-external-link" /></a></div>
+<div class="site-footer__column"><h2>Nous contacter</h2><a  :href="church.phoneLink">{{church.phone}}</a><a  :href="`mailto:${church.email}`">{{church.email}}</a><p>{{church.address}}</p></div>
+<div class="site-footer__column"><h2>À votre écoute</h2><NuxtLink to="/priere">Demande de prière</NuxtLink><NuxtLink to="/rendez-vous">Demander un rendez-vous</NuxtLink><a  :href="church.facebookUrl" target="_blank" rel="noopener noreferrer">Facebook <UIcon name="i-lucide-external-link" /></a></div>
 </div><div class="site-footer__bottom"><span>© {{new Date().getFullYear()}} Église Évangélique Les Moissonneurs. Tous droits réservés.</span><NuxtLink to="/contact">Nous trouver</NuxtLink></div></PageContainer></footer>
 </template>
 <style scoped>
