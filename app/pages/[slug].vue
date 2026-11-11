@@ -13,6 +13,7 @@ if (!page) {
 const isContact = slug === 'contact'
 const needsPersonalContact = slug === 'priere' || slug === 'rendez-vous'
 const whatsappUrl = church.whatsappLink
+const actionIsExternal = page.actionTo?.startsWith('http') ?? false
 const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(church.address)
 
 useSeoMeta({
@@ -79,7 +80,7 @@ useSeoMeta({
         </aside>
 
         <div v-if="page.actionTo" class="page-action">
-          <a v-if="page.actionTo.startsWith('http')" :href="page.actionTo" target="_blank" rel="noopener noreferrer" class="action-link action-link--primary">
+          <a v-if="actionIsExternal" :href="page.actionTo" target="_blank" rel="noopener noreferrer" class="action-link action-link--primary">
             {{ page.actionLabel }} <UIcon name="i-lucide-arrow-up-right" />
           </a>
           <BaseButton v-else :to="page.actionTo" variant="secondary">
