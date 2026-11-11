@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { news } from '~/data/news'
 import { staticPages } from '~/data/pages'
+import { church } from '~/data/church'
 
 const page = staticPages.actualites
 useSeoMeta({
@@ -27,7 +28,7 @@ useSeoMeta({
         <span class="empty-state__icon"><UIcon name="i-lucide-newspaper" /></span>
         <h2>Les prochaines nouvelles seront publiées ici.</h2>
         <p>Cette rubrique accueillera les annonces, les informations utiles et les retours sur les temps forts de l’Église. Les publications seront ajoutées après vérification.</p>
-        <a href="https://www.facebook.com/people/%C3%89glise-%C3%89vang%C3%A9lique-Les-MoissonneursEEM/61593163313292/" target="_blank" rel="noopener noreferrer">Suivre la page Facebook officielle <UIcon name="i-lucide-arrow-up-right" /></a>
+        <a :href="church.facebookUrl" target="_blank" rel="noopener noreferrer">Suivre la page Facebook officielle <UIcon name="i-lucide-arrow-up-right" /></a>
       </div>
     </PageContainer>
   </section>
