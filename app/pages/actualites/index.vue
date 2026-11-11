@@ -30,6 +30,8 @@ useSeoMeta({
         <p>Cette rubrique accueillera les annonces, les informations utiles et les retours sur les temps forts de l’Église. Les publications seront ajoutées après vérification.</p>
         <a :href="church.facebookUrl" target="_blank" rel="noopener noreferrer">Suivre la page Facebook officielle <UIcon name="i-lucide-arrow-up-right" /></a>
       </div>
+
+      <EditorialSections :sections="page.sections" />
     </PageContainer>
   </section>
 </template>
