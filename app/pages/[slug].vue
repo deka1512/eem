@@ -63,21 +63,7 @@ useSeoMeta({
           </article>
         </div>
 
-        <div class="content-sections">
-          <article v-for="(section, index) in page.sections" :key="section.title" class="content-section">
-            <span class="content-section__number">{{ String(index + 1).padStart(2, '0') }}</span>
-            <div>
-              <h2>{{ section.title }}</h2>
-              <p v-for="paragraph in section.paragraphs" :key="paragraph">{{ paragraph }}</p>
-              <ul v-if="section.points?.length">
-                <li v-for="point in section.points" :key="point">{{ point }}</li>
-              </ul>
-              <p v-if="section.reference" class="scripture-reference">
-                <UIcon name="i-lucide-book-open" /> Repère biblique : {{ section.reference }}
-              </p>
-            </div>
-          </article>
-        </div>
+        <EditorialSections :sections="page.sections" />
 
         <aside v-if="needsPersonalContact" class="personal-contact">
           <div>
@@ -118,14 +104,6 @@ useSeoMeta({
 .contact-card h2{margin:1rem 0 .45rem;font-size:1.1rem}
 .contact-card p{min-height:3.2rem;margin:0 0 1rem;color:var(--eem-text-muted);font-size:.88rem;overflow-wrap:anywhere}
 .contact-card a{display:inline-flex;align-items:center;gap:.35rem;color:var(--eem-primary);font-size:.82rem;font-weight:750;text-decoration:none}
-.content-sections{max-width:900px;margin-inline:auto}
-.content-section{display:grid;grid-template-columns:3.2rem 1fr;gap:1.3rem;padding-block:2rem;border-bottom:1px solid var(--eem-border)}
-.content-section:first-child{padding-top:0}
-.content-section__number{color:var(--eem-primary);font-family:var(--eem-font-heading);font-size:1rem;font-weight:800}
-.content-section h2{margin:0 0 .8rem;font-size:clamp(1.35rem,2.5vw,1.75rem)}
-.content-section p{margin:.55rem 0;color:var(--eem-text-muted)}
-.scripture-reference{display:inline-flex;align-items:center;gap:.5rem;margin-top:.9rem!important;padding:.55rem .8rem;border-radius:.5rem;background:var(--eem-surface);color:var(--eem-secondary)!important;font-size:.82rem;font-weight:700}
-.content-section ul{padding-left:1.2rem;color:var(--eem-text-muted)}
 .personal-contact{display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:3rem;padding:2rem;border-radius:1.2rem;background:var(--eem-surface)}
 .personal-contact h2{margin:.35rem 0;font-size:1.5rem}
 .personal-contact p:not(.eyebrow){max-width:600px;margin:0;color:var(--eem-text-muted);font-size:.9rem}
