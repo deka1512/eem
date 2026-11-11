@@ -30,6 +30,8 @@ useSeoMeta({
         <NuxtLink to="/contact">Demander une information <UIcon name="i-lucide-arrow-right" /></NuxtLink>
       </div>
 
+      <EditorialSections :sections="page.sections" />
+
       <div class="life-note">
         <div>
           <p class="eyebrow">Vivre la communion</p>
