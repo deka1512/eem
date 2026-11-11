@@ -30,6 +30,8 @@ useSeoMeta({
         <NuxtLink to="/contact">Contacter l’Église <UIcon name="i-lucide-arrow-right" /></NuxtLink>
       </div>
 
+      <EditorialSections :sections="page.sections" />
+
       <aside class="editorial-note">
         <UIcon name="i-lucide-lightbulb" />
         <p>Prenez le temps de lire les passages bibliques dans leur contexte et de méditer les enseignements à la lumière des Écritures.</p>
