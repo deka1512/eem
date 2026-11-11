@@ -1,34 +1,139 @@
 <script setup lang="ts">
-import {church} from '~/data/church'
-const route=useRoute()
-const sections:Record<string,{title:string;description:string}>={
-  eglise:{title:'L’Église',description:'Découvrez l’Église Évangélique Les Moissonneurs, sa présentation, sa vision et son engagement.'},
-  'vie-de-leglise':{title:'Vie de l’Église',description:'Retrouvez les activités et les rendez-vous de la communauté.'},
-  enseignements:{title:'Enseignements',description:'Les prédications et enseignements seront publiés dans cette rubrique.'},
-  actualites:{title:'Actualités',description:'Retrouvez les nouvelles et les temps forts de l’Église.'},
-  contact:{title:'Nous contacter',description:'L’Église Évangélique Les Moissonneurs vous accueille à Kinshasa.'},
-  priere:{title:'Demande de prière',description:'Pour transmettre une demande de prière, contactez directement l’Église. Un formulaire dédié sera ajouté dans une prochaine étape.'},
-  'rendez-vous':{title:'Demander un rendez-vous',description:'Pour solliciter un rendez-vous, contactez directement l’Église. Un formulaire dédié sera ajouté dans une prochaine étape.'},
+import { church } from '~/data/church'
+import { staticPages } from '~/data/pages'
+
+const route = useRoute()
+const slug = String(route.params.slug)
+const page = staticPages[slug]
+
+if (!page) {
+  throw createError({ statusCode: 404, statusMessage: 'Page introuvable' })
 }
-const section=sections[String(route.params.slug)]
-if(!section)throw createError({statusCode:404,statusMessage:'Page introuvable'})
-useSeoMeta({title:()=>section.title+' | Église Évangélique Les Moissonneurs',description:()=>section.description})
+
+const isContact = slug === 'contact'
+const needsPersonalContact = slug === 'priere' || slug === 'rendez-vous'
+const whatsappUrl = 'https://wa.me/243963921063'
+const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(church.address)
+
+useSeoMeta({
+  title: () => page.title + ' | Église Évangélique Les Moissonneurs',
+  description: () => page.description,
+  ogTitle: () => page.title + ' | Église Évangélique Les Moissonneurs',
+  ogDescription: () => page.description,
+})
 </script>
+
 <template>
-<section class="section-page"><PageContainer>
-<p class="eyebrow">Église Évangélique Les Moissonneurs</p><h1>{{section.title}}</h1><p class="section-page__description">{{section.description}}</p>
-<div v-if="route.params.slug==='contact'" class="contact-details">
-<div><UIcon name="i-lucide-map-pin"/><div><strong>Adresse</strong><p>{{church.address}}</p></div></div>
-<div><UIcon name="i-lucide-phone"/><div><strong>Téléphone / WhatsApp</strong><p><a :href="church.phoneLink">{{church.phone}}</a></p></div></div>
-<div><UIcon name="i-lucide-mail"/><div><strong>E-mail</strong><p><a :href="`mailto:${church.email}`">{{church.email}}</a></p></div></div>
-</div>
-<div v-else class="section-page__notice"><UIcon name="i-lucide-info"/><p>Cette rubrique sera enrichie avec les informations et les contenus validés par l’Église.</p></div>
-<BaseButton to="/" variant="secondary">Retour à l’accueil</BaseButton>
-</PageContainer></section>
+  <div class="static-page">
+    <section class="page-hero">
+      <PageContainer>
+        <NuxtLink to="/" class="breadcrumb">Accueil <UIcon name="i-lucide-chevron-right" /> {{ page.title }}</NuxtLink>
+        <p class="eyebrow">{{ page.eyebrow }}</p>
+        <h1>{{ page.heroTitle }}</h1>
+        <p class="page-hero__intro">{{ page.intro }}</p>
+      </PageContainer>
+    </section>
+
+    <section class="page-content">
+      <PageContainer>
+        <div v-if="isContact" class="contact-grid">
+          <article class="contact-card">
+            <span class="contact-card__icon"><UIcon name="i-lucide-map-pin" /></span>
+            <h2>Adresse</h2>
+            <p>{{ church.address }}</p>
+            <a :href="mapsUrl" target="_blank" rel="noopener noreferrer">Voir l’itinéraire <UIcon name="i-lucide-arrow-up-right" /></a>
+          </article>
+          <article class="contact-card">
+            <span class="contact-card__icon"><UIcon name="i-lucide-phone" /></span>
+            <h2>Téléphone</h2>
+            <p>{{ church.phone }}</p>
+            <a :href="church.phoneLink">Appeler l’Église <UIcon name="i-lucide-arrow-up-right" /></a>
+          </article>
+          <article class="contact-card">
+            <span class="contact-card__icon"><UIcon name="i-lucide-message-circle" /></span>
+            <h2>WhatsApp</h2>
+            <p>Écrivez-nous directement pour une demande d’information.</p>
+            <a :href="whatsappUrl" target="_blank" rel="noopener noreferrer">Ouvrir WhatsApp <UIcon name="i-lucide-arrow-up-right" /></a>
+          </article>
+          <article class="contact-card">
+            <span class="contact-card__icon"><UIcon name="i-lucide-mail" /></span>
+            <h2>E-mail</h2>
+            <p>{{ church.email }}</p>
+            <a :href="'mailto:' + church.email">Envoyer un e-mail <UIcon name="i-lucide-arrow-up-right" /></a>
+          </article>
+        </div>
+
+        <div class="content-sections">
+          <article v-for="(section, index) in page.sections" :key="section.title" class="content-section">
+            <span class="content-section__number">{{ String(index + 1).padStart(2, '0') }}</span>
+            <div>
+              <h2>{{ section.title }}</h2>
+              <p v-for="paragraph in section.paragraphs" :key="paragraph">{{ paragraph }}</p>
+              <ul v-if="section.points?.length">
+                <li v-for="point in section.points" :key="point">{{ point }}</li>
+              </ul>
+              <p v-if="section.reference" class="scripture-reference">
+                <UIcon name="i-lucide-book-open" /> Repère biblique : {{ section.reference }}
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <aside v-if="needsPersonalContact" class="personal-contact">
+          <div>
+            <p class="eyebrow">Prendre contact</p>
+            <h2>Choisissez le moyen qui vous convient.</h2>
+            <p>Votre demande est personnelle. Partagez uniquement les informations nécessaires à la prise de contact.</p>
+          </div>
+          <div class="personal-contact__actions">
+            <a :href="whatsappUrl" target="_blank" rel="noopener noreferrer" class="action-link action-link--primary"><UIcon name="i-lucide-message-circle" /> WhatsApp</a>
+            <a :href="church.phoneLink" class="action-link"><UIcon name="i-lucide-phone" /> Appeler</a>
+            <a :href="'mailto:' + church.email" class="action-link"><UIcon name="i-lucide-mail" /> E-mail</a>
+          </div>
+        </aside>
+
+        <div v-if="page.actionTo" class="page-action">
+          <a v-if="page.actionTo.startsWith('http')" :href="page.actionTo" target="_blank" rel="noopener noreferrer" class="action-link action-link--primary">
+            {{ page.actionLabel }} <UIcon name="i-lucide-arrow-up-right" />
+          </a>
+          <BaseButton v-else :to="page.actionTo" variant="secondary">
+            {{ page.actionLabel }} <UIcon name="i-lucide-arrow-right" />
+          </BaseButton>
+        </div>
+      </PageContainer>
+    </section>
+  </div>
 </template>
+
 <style scoped>
-.section-page{min-height:55vh;padding-block:clamp(4rem,8vw,7rem)}.section-page h1{margin:.7rem 0;font-size:clamp(2.4rem,5vw,4rem)}.section-page__description{max-width:700px;color:var(--eem-text-muted);font-size:1.1rem}
-.section-page__notice,.contact-details{max-width:760px;margin:2rem 0;padding:1.5rem;border:1px solid var(--eem-border);border-radius:1rem;background:#fff;box-shadow:var(--eem-shadow-card)}
-.section-page__notice{display:flex;align-items:center;gap:1rem;color:var(--eem-secondary)}.section-page__notice p{margin:0}
-.contact-details{display:grid;gap:1.25rem}.contact-details>div{display:flex;align-items:flex-start;gap:1rem}.contact-details>div> :deep(svg){flex:none;margin-top:.2rem;color:var(--eem-primary);font-size:1.3rem}.contact-details strong{color:var(--eem-secondary)}.contact-details p{margin:.2rem 0 0;color:var(--eem-text-muted)}.contact-details a{color:var(--eem-primary);text-decoration:none}
+.page-hero{padding-block:clamp(3.5rem,8vw,6.5rem);background:linear-gradient(120deg,#f0f9fc 0%,#fff 65%,#e5f5f8 100%)}
+.breadcrumb{display:inline-flex;align-items:center;gap:.45rem;margin-bottom:2.2rem;color:var(--eem-text-muted);font-size:.8rem;text-decoration:none}
+.breadcrumb:hover{color:var(--eem-primary)}
+.page-hero h1{max-width:900px;margin:.65rem 0 1rem;font-size:clamp(2.35rem,5.5vw,4.4rem);line-height:1.08}
+.page-hero__intro{max-width:780px;margin:0;color:var(--eem-text-muted);font-size:clamp(1rem,1.7vw,1.18rem)}
+.page-content{padding-block:clamp(3rem,6vw,5.5rem)}
+.contact-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-bottom:4rem}
+.contact-card{min-width:0;padding:1.35rem;border:1px solid var(--eem-border);border-radius:1rem;background:#fff;box-shadow:var(--eem-shadow-card)}
+.contact-card__icon{display:grid;width:2.7rem;height:2.7rem;place-items:center;border-radius:.8rem;background:var(--eem-surface);color:var(--eem-secondary);font-size:1.25rem}
+.contact-card h2{margin:1rem 0 .45rem;font-size:1.1rem}
+.contact-card p{min-height:3.2rem;margin:0 0 1rem;color:var(--eem-text-muted);font-size:.88rem;overflow-wrap:anywhere}
+.contact-card a{display:inline-flex;align-items:center;gap:.35rem;color:var(--eem-primary);font-size:.82rem;font-weight:750;text-decoration:none}
+.content-sections{max-width:900px;margin-inline:auto}
+.content-section{display:grid;grid-template-columns:3.2rem 1fr;gap:1.3rem;padding-block:2rem;border-bottom:1px solid var(--eem-border)}
+.content-section:first-child{padding-top:0}
+.content-section__number{color:var(--eem-primary);font-family:var(--eem-font-heading);font-size:1rem;font-weight:800}
+.content-section h2{margin:0 0 .8rem;font-size:clamp(1.35rem,2.5vw,1.75rem)}
+.content-section p{margin:.55rem 0;color:var(--eem-text-muted)}
+.scripture-reference{display:inline-flex;align-items:center;gap:.5rem;margin-top:.9rem!important;padding:.55rem .8rem;border-radius:.5rem;background:var(--eem-surface);color:var(--eem-secondary)!important;font-size:.82rem;font-weight:700}
+.content-section ul{padding-left:1.2rem;color:var(--eem-text-muted)}
+.personal-contact{display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:3rem;padding:2rem;border-radius:1.2rem;background:var(--eem-surface)}
+.personal-contact h2{margin:.35rem 0;font-size:1.5rem}
+.personal-contact p:not(.eyebrow){max-width:600px;margin:0;color:var(--eem-text-muted);font-size:.9rem}
+.personal-contact__actions{display:flex;flex-wrap:wrap;gap:.65rem}
+.action-link{display:inline-flex;align-items:center;justify-content:center;gap:.45rem;min-height:2.8rem;padding:.7rem 1rem;border:1px solid var(--eem-border);border-radius:.65rem;background:#fff;color:var(--eem-secondary);font-size:.85rem;font-weight:750;text-decoration:none}
+.action-link--primary{border-color:var(--eem-primary);background:var(--eem-primary);color:#fff}
+.action-link--primary:hover{background:var(--eem-primary-hover)}
+.page-action{display:flex;justify-content:center;margin-top:3rem}
+@media(max-width:950px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.personal-contact{align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.contact-grid{grid-template-columns:1fr}.content-section{grid-template-columns:2rem 1fr;gap:.7rem}.personal-contact{padding:1.3rem}.personal-contact__actions{width:100%;flex-direction:column}.action-link{width:100%}}
 </style>
