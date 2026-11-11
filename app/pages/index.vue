@@ -1,11 +1,12 @@
 <script setup lang="ts">
+import {church} from '~/data/church'
 import {news} from '~/data/news'
 import {events} from '~/data/events'
 import {sermons} from '~/data/sermons'
 
 useSeoMeta({
   title:'Accueil | Église Évangélique Les Moissonneurs',
-  description:'Bienvenue à l’Église Évangélique Les Moissonneurs à Kinshasa. Une communauté engagée à annoncer l’Évangile de Jésus-Christ.',
+  description:church.description,
 })
 </script>
 <template>
@@ -13,10 +14,10 @@ useSeoMeta({
 <section class="home-hero"><PageContainer><div class="home-hero__content">
 <p class="eyebrow">Église Évangélique · Kinshasa</p>
 <h1>Ensemble, annonçons l’Évangile de Jésus-Christ.</h1>
-<p class="home-hero__description">Une communauté chrétienne engagée à annoncer l’Évangile de Jésus-Christ et à sauver des âmes.</p>
+<p class="home-hero__description">{{church.description}}</p>
 <div class="home-hero__actions"><BaseButton to="/eglise" size="lg">Découvrir l’Église <UIcon name="i-lucide-arrow-right" /></BaseButton><BaseButton to="/contact" variant="ghost" size="lg">Nous contacter</BaseButton></div>
 </div><div class="home-hero__visual" aria-hidden="true"><div class="home-hero__symbol"><UIcon name="i-lucide-wheat" /></div><span>Foi · Communion · Engagement</span></div></PageContainer></section>
-<section class="page-section"><PageContainer><div class="welcome-grid"><div><p class="eyebrow">Bienvenue à l’EEM</p><h2>Une communauté tournée vers l’Évangile.</h2></div><div><p>L’Église Évangélique Les Moissonneurs est une communauté chrétienne engagée dans l’annonce de l’Évangile de Jésus-Christ et le salut des âmes.</p><BaseButton to="/eglise" variant="secondary">En savoir plus <UIcon name="i-lucide-arrow-right" /></BaseButton></div></div></PageContainer></section>
+<section class="page-section"><PageContainer><div class="welcome-grid"><div><p class="eyebrow">Bienvenue à l’EEM</p><h2>Une communauté tournée vers l’Évangile.</h2></div><div><p>{{church.description}}</p><BaseButton to="/eglise" variant="secondary">En savoir plus <UIcon name="i-lucide-arrow-right" /></BaseButton></div></div></PageContainer></section>
 <section v-if="events.length" class="page-section page-section--soft"><PageContainer><SectionHeading eyebrow="Vie de l’Église" title="Nos prochains rendez-vous" description="Retrouvez les événements et rencontres annoncés par l’Église."/><div class="cards-grid"><CardEvent v-for="event in events.slice(0,3)" :key="event.slug" :item="event"/></div></PageContainer></section>
 <section v-if="sermons.length" class="page-section"><PageContainer><SectionHeading eyebrow="Grandir dans la foi" title="Enseignements" description="Retrouvez les messages et enseignements partagés par l’Église."/><div class="cards-grid"><CardSermon v-for="sermon in sermons.slice(0,3)" :key="sermon.slug" :item="sermon"/></div></PageContainer></section>
 <section v-if="news.length" class="page-section page-section--soft"><PageContainer><SectionHeading eyebrow="À la une" title="Actualités de l’Église" description="Suivez les nouvelles et les temps forts de notre communauté."/><div class="cards-grid"><CardNews v-for="item in news.slice(0,3)" :key="item.slug" :item="item"/></div></PageContainer></section>
