@@ -44,7 +44,6 @@ withDefaults(defineProps<{
 .page-hero :deep(.page-container) {
   position: relative;
   z-index: 1;
-  width: 100%;
 }
 .page-hero__breadcrumb {
   display: inline-flex;

@@ -177,6 +177,7 @@ useSeoMeta({
 .home-hero__actions{display:flex;flex-wrap:wrap;gap:.8rem;margin-top:2rem}
 .home-hero__address{display:flex;align-items:center;gap:.45rem;margin-top:1.5rem;color:rgb(255 255 255 / 82%);font-size:.82rem}
 .home-hero :deep(.base-button--ghost){border:1px solid rgb(255 255 255 / 45%);color:#fff}
+.home-hero :deep(.base-button--ghost:hover){border-color:rgb(255 255 255 / 75%);background:rgb(255 255 255 / 12%);color:#fff}
 .next-steps-section{background:var(--eem-surface)}
 .next-steps-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem}
 .next-step-card{padding:1.35rem;border:1px solid rgb(7 84 107 / 9%);border-radius:1rem;background:#fff;box-shadow:var(--eem-shadow-card)}

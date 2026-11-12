@@ -34,6 +34,7 @@ useSeoMeta({
 
 <style scoped>
 .listing-page{min-height:60vh;padding-bottom:clamp(3.5rem,7vw,5.5rem)}
+.listing-page > :deep(.page-container){padding-top:clamp(3rem,6vw,5rem)}
 .cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem}
 .empty-state{display:grid;justify-items:center;max-width:760px;margin:0 auto;padding:3rem 2rem;border:1px solid var(--eem-border);border-radius:1.2rem;background:var(--eem-surface);text-align:center}
 .empty-state__icon{display:grid;width:3.5rem;height:3.5rem;place-items:center;border-radius:1rem;background:#fff;color:var(--eem-secondary);font-size:1.6rem}
