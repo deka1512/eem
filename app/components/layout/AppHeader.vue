@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const isMenuOpen=ref(false)
-const navigation=[{label:'Accueil',to:'/'},{label:'L’Église',to:'/eglise'},{label:'Leadership',to:'/leadership'},{label:'Vie de l’Église',to:'/vie-de-leglise'},{label:'Enseignements',to:'/enseignements'},{label:'Actualités',to:'/actualites'},{label:'Contact',to:'/contact'}]
+const navigation=[{label:'Accueil',to:'/'},{label:'L’Église',to:'/eglise'},{label:'Enseignements',to:'/enseignements'},{label:'Actualités',to:'/actualites'},{label:'Offrandes',to:'/offrandes-et-dons'}]
 const closeMenu=()=>{isMenuOpen.value=false}
 </script>
 <template>
@@ -9,7 +9,7 @@ const closeMenu=()=>{isMenuOpen.value=false}
 <span class="brand__mark"><UIcon name="i-lucide-wheat" /></span><span class="brand__text"><strong>Les Moissonneurs</strong><small>Église Évangélique · EEM</small></span>
 </NuxtLink>
 <nav class="desktop-nav" aria-label="Navigation principale"><NuxtLink v-for="item in navigation" :key="item.to" :to="item.to" active-class="is-active">{{item.label}}</NuxtLink></nav>
-<NuxtLink to="/contact" class="header-cta">Nous contacter <UIcon name="i-lucide-arrow-up-right" /></NuxtLink>
+<NuxtLink to="/offrandes-et-dons" class="header-cta">Offrandes <UIcon name="i-lucide-heart-handshake" /></NuxtLink>
 <button class="menu-toggle" type="button" :aria-expanded="isMenuOpen" aria-controls="mobile-navigation" :aria-label="isMenuOpen?'Fermer le menu':'Ouvrir le menu'" @click="isMenuOpen=!isMenuOpen"><UIcon :name="isMenuOpen?'i-lucide-x':'i-lucide-menu'" /></button>
 </div>
 <nav v-if="isMenuOpen" id="mobile-navigation" class="mobile-nav" aria-label="Navigation mobile">
