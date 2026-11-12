@@ -5,9 +5,9 @@ import { events } from '~/data/events'
 
 const serviceSchedules = [
   { day: 'Dimanche', time: '08h30 – 11h30', kind: 'Culte dominical', icon: 'i-lucide-sun' },
-  { day: 'Lundi', time: '17h00 – 19h00', kind: 'Rencontre de prière', icon: 'i-lucide-hand-heart' },
-  { day: 'Mercredi', time: '17h00 – 19h00', kind: 'Enseignement biblique', icon: 'i-lucide-book-open' },
-  { day: 'Jeudi', time: '17h00 – 19h00', kind: 'Temps de communion', icon: 'i-lucide-users' },
+  { day: 'Lundi', time: '17h00 – 19h00', kind: 'Rencontre de l’Église', icon: 'i-lucide-hand-heart' },
+  { day: 'Mercredi', time: '17h00 – 19h00', kind: 'Rencontre de l’Église', icon: 'i-lucide-book-open' },
+  { day: 'Jeudi', time: '17h00 – 19h00', kind: 'Rencontre de l’Église', icon: 'i-lucide-users' },
 ]
 
 const sermonHighlights = [
@@ -174,6 +174,7 @@ useSeoMeta({
             </div>
           </article>
         </div>
+        <p class="services-note">Les rencontres de semaine ont lieu aux horaires indiqués ; leur programme détaillé peut être confirmé auprès de l’Église.</p>
         <div class="services-footer">
           <p>Vous souhaitez échanger avec le pasteur ou demander un accompagnement ?</p>
           <BaseButton to="/rendez-vous" size="lg">Prendre rendez-vous avec le pasteur <UIcon name="i-lucide-arrow-right" /></BaseButton>
@@ -242,7 +243,7 @@ useSeoMeta({
             </div>
           </article>
         </div>
-        <p class="leadership-note">Les portraits secondaires sont des visuels d’illustration et ne représentent pas les responsables de l’EEM. Les noms et fonctions nominatives seront publiés après validation.</p>
+        <p class="leadership-note">Les portraits secondaires sont des visuels d’illustration et ne représentent pas les responsables de l’EEM. Les domaines présentés sont des repères de mise en page, pas un organigramme officiel ; les noms et fonctions seront ajoutés après validation.</p>
         <div class="leadership-more"><BaseButton to="/leadership" variant="secondary">Découvrir le leadership <UIcon name="i-lucide-arrow-right" /></BaseButton></div>
       </PageContainer>
     </section>
@@ -350,6 +351,7 @@ useSeoMeta({
 .service-card__body p{margin:.1rem 0 .5rem;color:var(--eem-text-muted);font-size:.75rem;font-weight:650}
 .service-card__body h3{margin:0 0 .45rem;font-size:1.15rem}
 .service-card__body strong{color:var(--eem-primary);font-size:.9rem}
+.services-note{margin:0 0 1rem;color:var(--eem-text-muted);font-size:.78rem}
 .services-footer{display:flex;align-items:center;justify-content:space-between;gap:1.5rem;margin-top:2rem;padding:1.4rem 1.6rem;border-radius:1rem;background:var(--eem-secondary);color:#fff}
 .services-footer p{margin:0;color:rgb(255 255 255 / 86%);font-size:.95rem}
 .services-footer :deep(.base-button){flex:none}
