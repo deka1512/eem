@@ -2,7 +2,7 @@
 import { sermons } from '~/data/sermons'
 import { staticPages } from '~/data/pages'
 
-const page = staticPages.enseignements
+const page = staticPages.enseignements!
 useSeoMeta({
   title: 'Enseignements | Église Évangélique Les Moissonneurs',
   description: page.description,

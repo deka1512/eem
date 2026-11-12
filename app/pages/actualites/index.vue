@@ -3,7 +3,7 @@ import { news } from '~/data/news'
 import { staticPages } from '~/data/pages'
 import { church } from '~/data/church'
 
-const page = staticPages.actualites
+const page = staticPages.actualites!
 useSeoMeta({
   title: 'Actualités | Église Évangélique Les Moissonneurs',
   description: page.description,
