@@ -34,6 +34,15 @@ export const staticPages: Record<string, StaticPage> = {
     description: 'Découvrez l’identité et la mission de l’Église Évangélique Les Moissonneurs à Kinshasa.',
     sections: [
       {
+        title: 'Notre histoire',
+        paragraphs: [
+          'L’histoire de l’Église Évangélique Les Moissonneurs se comprend d’abord à travers la mission qui porte son nom : annoncer l’Évangile de Jésus-Christ et contribuer au salut des âmes.',
+          'À Limete, à Kinshasa, cette identité s’exprime par le rassemblement autour de la Parole, la prière, la communion fraternelle et le service. La communauté souhaite accueillir chaque personne avec respect et l’encourager à découvrir ou approfondir sa foi.',
+          'Cette page présente les repères essentiels de notre identité. Les dates fondatrices, les grandes étapes et les témoignages historiques seront ajoutés à partir des archives et des informations officiellement validées par l’Église.'
+        ],
+        reference: 'Matthieu 9:37-38'
+      },
+      {
         title: 'Notre mission',
         paragraphs: [
           'Annoncer l’Évangile de Jésus-Christ et faire connaître le message du salut : telle est la mission au cœur de l’identité des Moissonneurs.',
@@ -64,14 +73,6 @@ export const staticPages: Record<string, StaticPage> = {
           'Nous vous invitons à venir découvrir la communauté et à échanger avec l’Église.'
         ]
       },
-      {
-        title: 'Un leadership au service de la communauté',
-        paragraphs: [
-          'Dans l’Évangile, la responsabilité ne se comprend pas comme une recherche de position, mais comme un engagement au service des autres.',
-          'Un leadership chrétien s’exerce avec humilité, fidélité à la Parole, sens de l’écoute et souci de la communauté. Les fonctions et les personnes qui les portent seront présentées nominativement après validation de l’Église.'
-        ],
-        reference: 'Marc 10:42-45'
-      }
     ],
     actionLabel: 'Nous contacter',
     actionTo: '/contact'
