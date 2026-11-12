@@ -1,39 +1,9 @@
 <script setup lang="ts">
 import { church } from '~/data/church'
+import { sermons } from '~/data/sermons'
 import { staticPages } from '~/data/pages'
 
 const page = staticPages.enseignements!
-
-const sermons = [
-  {
-    number: '01',
-    title: 'La moisson est grande',
-    scripture: 'Matthieu 9:37-38',
-    category: 'Évangélisation et mission',
-    description: 'Comprendre l’appel de Jésus à prier pour les ouvriers et à prendre part à l’annonce de l’Évangile.',
-    image: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1100&q=85',
-    search: 'Eglise Evangelique Les Moissonneurs Kinshasa La moisson est grande Matthieu 9 37',
-  },
-  {
-    number: '02',
-    title: 'Grandir dans la foi',
-    scripture: '2 Pierre 3:18',
-    category: 'Croissance spirituelle',
-    description: 'Nourrir sa vie spirituelle par la Parole, la prière et une marche quotidienne avec Jésus-Christ.',
-    image: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1100&q=85',
-    search: 'Eglise Evangelique Les Moissonneurs Kinshasa grandir dans la foi 2 Pierre 3 18',
-  },
-  {
-    number: '03',
-    title: 'Vivre l’amour de Christ',
-    scripture: 'Jean 13:34-35',
-    category: 'Vie chrétienne',
-    description: 'Laisser l’amour du Seigneur transformer nos relations, nos choix et notre manière de servir.',
-    image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1100&q=85',
-    search: 'Eglise Evangelique Les Moissonneurs Kinshasa amour de Christ Jean 13',
-  },
-]
-
 const youtubeSearch = 'https://www.youtube.com/results?search_query=' + encodeURIComponent('Eglise Evangelique Les Moissonneurs Kinshasa')
 const whatsappMessage = 'Bonjour, je souhaite obtenir des informations sur les prédications et enseignements de l’EEM.'
 const whatsappUrl = church.whatsappLink + '?text=' + encodeURIComponent(whatsappMessage)
@@ -64,7 +34,7 @@ useSeoMeta({
             <h2>Des messages pour nourrir votre foi et éclairer votre marche.</h2>
           </div>
           <div class="teachings-intro__copy">
-            <p>La prédication nous invite à écouter les Écritures, à approfondir notre relation avec Dieu et à mettre sa Parole en pratique au quotidien.</p>
+            <p>Ces ressources proposent des trames bibliques pour lire les Écritures, approfondir un thème et réfléchir à sa mise en pratique. Elles sont conçues pour accompagner la méditation personnelle et l’enseignement.</p>
             <a :href="youtubeSearch" target="_blank" rel="noopener noreferrer" class="youtube-link">
               <UIcon name="i-lucide-youtube" /> Rechercher les vidéos de l’EEM sur YouTube <UIcon name="i-lucide-arrow-up-right" />
             </a>
@@ -77,43 +47,36 @@ useSeoMeta({
       <PageContainer>
         <div class="sermons-heading">
           <div>
-            <p class="eyebrow">Sélection de thèmes bibliques</p>
-            <h2>Prédications à découvrir</h2>
-            <p>Explorez ces thèmes et retrouvez les éventuelles vidéos correspondantes dans les résultats YouTube.</p>
+            <p class="eyebrow">Ressources bibliques</p>
+            <h2>Prédications et plans d’étude</h2>
+            <p>Choisissez un thème pour découvrir son passage biblique, son plan et une piste de mise en pratique.</p>
           </div>
           <span class="sermons-heading__icon"><UIcon name="i-lucide-book-open-check" /></span>
         </div>
 
         <div class="sermons-grid">
-          <article v-for="sermon in sermons" :key="sermon.number" class="sermon-card">
-            <a
-              class="sermon-card__image"
-              :href="'https://www.youtube.com/results?search_query=' + encodeURIComponent(sermon.search)"
-              target="_blank"
-              rel="noopener noreferrer"
-              :aria-label="'Rechercher sur YouTube : ' + sermon.title"
-            >
-              <img :src="sermon.image" :alt="'Illustration du thème ' + sermon.title" loading="lazy">
-              <span class="sermon-card__play"><UIcon name="i-lucide-play" /></span>
-              <span class="sermon-card__number">{{ sermon.number }}</span>
-            </a>
+          <article v-for="(sermon, index) in sermons" :key="sermon.slug" class="sermon-card">
+            <NuxtLink :to="`/enseignements/${sermon.slug}`" class="sermon-card__image">
+              <img
+                :src="sermon.thumbnail || 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=1100&q=85'"
+                :alt="`Illustration : ${sermon.title}`"
+                loading="lazy"
+              >
+              <span class="sermon-card__number">{{ String(index + 1).padStart(2, '0') }}</span>
+              <span class="sermon-card__open"><UIcon name="i-lucide-arrow-up-right" /></span>
+            </NuxtLink>
             <div class="sermon-card__body">
-              <p class="sermon-card__category">{{ sermon.category }}</p>
-              <h3>{{ sermon.title }}</h3>
+              <p class="sermon-card__category">{{ sermon.category || 'Enseignement biblique' }}</p>
+              <h3><NuxtLink :to="`/enseignements/${sermon.slug}`">{{ sermon.title }}</NuxtLink></h3>
               <p class="sermon-card__scripture"><UIcon name="i-lucide-book-open" /> {{ sermon.scripture }}</p>
               <p class="sermon-card__description">{{ sermon.description }}</p>
-              <a
-                class="sermon-card__link"
-                :href="'https://www.youtube.com/results?search_query=' + encodeURIComponent(sermon.search)"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Rechercher cette prédication <UIcon name="i-lucide-arrow-up-right" />
-              </a>
+              <NuxtLink :to="`/enseignements/${sermon.slug}`" class="sermon-card__link">
+                Découvrir le plan <UIcon name="i-lucide-arrow-right" />
+              </NuxtLink>
             </div>
           </article>
         </div>
-        <p class="sermons-note">Les visuels sont illustratifs et les liens ouvrent une recherche YouTube ciblée. Les liens directs vers les vidéos officielles seront ajoutés dès que les publications de l’EEM auront été identifiées et vérifiées.</p>
+        <p class="sermons-note">Ces contenus sont des trames bibliques proposées pour l’édification. Ils ne sont pas attribués à un prédicateur ni présentés comme des enregistrements de cultes. Les vidéos officielles seront ajoutées après vérification des liens.</p>
       </PageContainer>
     </section>
 
@@ -136,7 +99,7 @@ useSeoMeta({
           <div class="contact-panel__copy">
             <p class="eyebrow">Une question sur un enseignement ?</p>
             <h2>Échangeons autour de la Parole.</h2>
-            <p>Vous souhaitez retrouver une prédication, demander une référence biblique ou en savoir plus sur les enseignements de l’Église ? Notre équipe est à votre écoute.</p>
+            <p>Vous souhaitez proposer un thème, retrouver une prédication ou demander une référence biblique ? Notre équipe est à votre écoute.</p>
           </div>
           <div class="contact-panel__actions">
             <a :href="whatsappUrl" target="_blank" rel="noopener noreferrer" class="contact-action contact-action--primary">
@@ -171,13 +134,15 @@ useSeoMeta({
 .sermon-card__image::after{position:absolute;inset:35% 0 0;background:linear-gradient(transparent,rgb(3 31 43 / 35%));content:""}
 .sermon-card__image img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s ease}
 .sermon-card:hover .sermon-card__image img{transform:scale(1.045)}
-.sermon-card__play{position:absolute;z-index:1;top:50%;left:50%;display:grid;width:3.4rem;height:3.4rem;place-items:center;transform:translate(-50%,-50%);border:1px solid rgb(255 255 255 / 65%);border-radius:50%;background:rgb(4 48 65 / 78%);color:#fff;font-size:1.25rem}
-.sermon-card__number{position:absolute;z-index:1;right:.9rem;bottom:.8rem;color:#fff;font-size:.75rem;font-weight:850;letter-spacing:.1em}
+.sermon-card__number{position:absolute;z-index:1;right:1rem;bottom:.8rem;color:#fff;font-size:.76rem;font-weight:850;letter-spacing:.1em}
+.sermon-card__open{position:absolute;z-index:1;top:1rem;right:1rem;display:grid;width:2.2rem;height:2.2rem;place-items:center;border:1px solid rgb(255 255 255 / 65%);border-radius:50%;background:rgb(4 48 65 / 78%);color:#fff}
 .sermon-card__body{padding:1.4rem}
 .sermon-card__category{margin:0 0 .55rem;color:var(--eem-primary);font-size:.7rem;font-weight:850;letter-spacing:.09em;text-transform:uppercase}
-.sermon-card h3{margin:0;font-size:1.4rem;line-height:1.25}
+.sermon-card h3{margin:0;font-size:1.32rem;line-height:1.25}
+.sermon-card h3 a{color:var(--eem-text);text-decoration:none}
+.sermon-card h3 a:hover{color:var(--eem-primary)}
 .sermon-card__scripture{display:flex;align-items:center;gap:.45rem;margin:.65rem 0;color:#56717d;font-size:.8rem;font-weight:750}
-.sermon-card__description{min-height:4.5rem;margin:0;color:var(--eem-text-muted);font-size:.88rem;line-height:1.65}
+.sermon-card__description{min-height:4.7rem;margin:0;color:var(--eem-text-muted);font-size:.88rem;line-height:1.65}
 .sermon-card__link{display:inline-flex;align-items:center;gap:.45rem;margin-top:1.2rem;color:var(--eem-primary);font-size:.82rem;font-weight:850;text-decoration:none}
 .sermons-note{margin:1rem 0 0;color:#6d818a;font-size:.74rem;line-height:1.6}
 .scripture-section{padding-block:clamp(2.5rem,5vw,4rem);background:#fff}
