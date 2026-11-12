@@ -212,6 +212,20 @@ export const staticPages: Record<string, StaticPage> = {
         paragraphs: [
           'Vous pouvez joindre l’Église par téléphone, WhatsApp ou e-mail. Pour une demande nécessitant un échange personnel, indiquez simplement le meilleur moyen de vous recontacter.'
         ]
+      },
+      {
+        title: 'Préparer votre message',
+        paragraphs: [
+          'Pour faciliter votre demande, indiquez clairement l’objet de votre prise de contact et le moyen par lequel vous souhaitez recevoir une réponse.',
+          'Si votre demande concerne une visite, un échange pastoral ou une information pratique, précisez-le simplement dès le premier message.'
+        ],
+        points: ['Votre nom, si vous souhaitez le communiquer', 'Le sujet général de votre demande', 'Votre moyen de contact préféré']
+      },
+      {
+        title: 'Nous trouver à Limete',
+        paragraphs: [
+          'Adresse : 162, avenue des Fresias, 11ème Rue, commune de Limete Résidentiel, Kinshasa. Pour préparer votre déplacement, vous pouvez nous contacter afin de confirmer les indications utiles.'
+        ]
       }
     ]
   },
@@ -235,6 +249,21 @@ export const staticPages: Record<string, StaticPage> = {
         paragraphs: [
           'Choisissez le moyen de contact qui vous convient. Si vous souhaitez rester discret, vous pouvez commencer votre message sans détailler votre situation.'
         ]
+      },
+      {
+        title: 'Vous pouvez partager votre demande à votre rythme',
+        paragraphs: [
+          'Il n’est pas nécessaire de raconter toute votre situation dans un premier message. Quelques mots suffisent pour indiquer que vous souhaitez être accompagné dans la prière.',
+          'Vous pouvez également préciser si vous souhaitez être recontacté ou si vous préférez simplement transmettre un sujet de prière.'
+        ],
+        points: ['Partagez uniquement ce que vous souhaitez confier', 'Évitez les détails personnels dans les espaces publics', 'Indiquez si un retour de l’Église est souhaité']
+      },
+      {
+        title: 'Un encouragement dans l’épreuve',
+        paragraphs: [
+          'La prière est une démarche de confiance et d’espérance. La communauté chrétienne est appelée à porter les fardeaux les uns des autres avec compassion et discrétion.'
+        ],
+        reference: 'Galates 6:2'
       }
     ],
     actionLabel: 'Écrire à l’Église',
@@ -259,6 +288,20 @@ export const staticPages: Record<string, StaticPage> = {
         title: 'Respect de votre vie privée',
         paragraphs: [
           'Communiquez uniquement les informations nécessaires à la prise de contact. Les sujets personnels ne doivent pas être publiés dans les espaces publics du site.'
+        ]
+      },
+      {
+        title: 'Pour faciliter l’organisation',
+        paragraphs: [
+          'Précisez le motif général de votre demande, vos disponibilités et le moyen de contact à privilégier. L’équipe pourra ainsi vous répondre et convenir avec vous des modalités possibles.',
+          'Un rendez-vous n’est confirmé qu’après échange direct avec l’Église.'
+        ],
+        points: ['Indiquer le sujet général de la rencontre', 'Proposer quelques disponibilités', 'Laisser un numéro ou une adresse de réponse']
+      },
+      {
+        title: 'Un échange dans le respect et l’écoute',
+        paragraphs: [
+          'Chaque échange mérite attention et respect. Vous pouvez présenter votre demande avec simplicité, sans transmettre d’informations sensibles avant d’avoir établi le contact.'
         ]
       }
     ],
