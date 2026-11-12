@@ -1,6 +1,6 @@
 <script setup lang="ts">
 const isMenuOpen=ref(false)
-const navigation=[{label:'Accueil',to:'/'},{label:'L’Église',to:'/eglise'},{label:'Vie de l’Église',to:'/vie-de-leglise'},{label:'Enseignements',to:'/enseignements'},{label:'Actualités',to:'/actualites'},{label:'Contact',to:'/contact'}]
+const navigation=[{label:'Accueil',to:'/'},{label:'L’Église',to:'/eglise'},{label:'Leadership',to:'/leadership'},{label:'Vie de l’Église',to:'/vie-de-leglise'},{label:'Enseignements',to:'/enseignements'},{label:'Actualités',to:'/actualites'},{label:'Contact',to:'/contact'}]
 const closeMenu=()=>{isMenuOpen.value=false}
 </script>
 <template>

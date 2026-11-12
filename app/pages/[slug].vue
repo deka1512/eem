@@ -26,14 +26,13 @@ useSeoMeta({
 
 <template>
   <div class="static-page">
-    <section class="page-hero">
-      <PageContainer>
-        <NuxtLink to="/" class="breadcrumb">Accueil <UIcon name="i-lucide-chevron-right" /> {{ page.title }}</NuxtLink>
-        <p class="eyebrow">{{ page.eyebrow }}</p>
-        <h1>{{ page.heroTitle }}</h1>
-        <p class="page-hero__intro">{{ page.intro }}</p>
-      </PageContainer>
-    </section>
+    <PageHero
+      :eyebrow="page.eyebrow"
+      :title="page.heroTitle"
+      :description="page.intro"
+      :image="page.heroImage"
+      :breadcrumb="page.title"
+    />
 
     <section class="page-content">
       <PageContainer>
@@ -66,6 +65,15 @@ useSeoMeta({
 
         <EditorialSections :sections="page.sections" />
 
+        <aside v-if="slug === 'eglise'" class="leadership-invite">
+          <div>
+            <p class="eyebrow">Leadership et engagement</p>
+            <h2>Une communauté grandit lorsque chacun peut servir.</h2>
+            <p>Découvrez les principes bibliques et les domaines de collaboration qui accompagnent la mission de l’EEM.</p>
+          </div>
+          <NuxtLink to="/leadership">Découvrir le leadership <UIcon name="i-lucide-arrow-right" /></NuxtLink>
+        </aside>
+
         <aside v-if="needsPersonalContact" class="personal-contact">
           <div>
             <p class="eyebrow">Prendre contact</p>
@@ -93,12 +101,11 @@ useSeoMeta({
 </template>
 
 <style scoped>
-.page-hero{padding-block:clamp(3.5rem,8vw,6.5rem);background:linear-gradient(120deg,#f0f9fc 0%,#fff 65%,#e5f5f8 100%)}
-.breadcrumb{display:inline-flex;align-items:center;gap:.45rem;margin-bottom:2.2rem;color:var(--eem-text-muted);font-size:.8rem;text-decoration:none}
-.breadcrumb:hover{color:var(--eem-primary)}
-.page-hero h1{max-width:900px;margin:.65rem 0 1rem;font-size:clamp(2.35rem,5.5vw,4.4rem);line-height:1.08}
-.page-hero__intro{max-width:780px;margin:0;color:var(--eem-text-muted);font-size:clamp(1rem,1.7vw,1.18rem)}
 .page-content{padding-block:clamp(3rem,6vw,5.5rem)}
+.leadership-invite{display:flex;align-items:center;justify-content:space-between;gap:2rem;margin-top:3rem;padding:2rem;border-radius:1.2rem;background:var(--eem-surface)}
+.leadership-invite h2{margin:.45rem 0;font-size:clamp(1.35rem,2.5vw,1.8rem)}
+.leadership-invite p:not(.eyebrow){max-width:650px;margin:0;color:var(--eem-text-muted);font-size:.9rem}
+.leadership-invite>a{display:inline-flex;flex:none;align-items:center;gap:.4rem;color:var(--eem-primary);font-size:.88rem;font-weight:750;text-decoration:none}
 .contact-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1rem;margin-bottom:4rem}
 .contact-card{min-width:0;padding:1.35rem;border:1px solid var(--eem-border);border-radius:1rem;background:#fff;box-shadow:var(--eem-shadow-card)}
 .contact-card__icon{display:grid;width:2.7rem;height:2.7rem;place-items:center;border-radius:.8rem;background:var(--eem-surface);color:var(--eem-secondary);font-size:1.25rem}
@@ -113,6 +120,6 @@ useSeoMeta({
 .action-link--primary{border-color:var(--eem-primary);background:var(--eem-primary);color:#fff}
 .action-link--primary:hover{background:var(--eem-primary-hover)}
 .page-action{display:flex;justify-content:center;margin-top:3rem}
-@media(max-width:950px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.personal-contact{align-items:flex-start;flex-direction:column}}
+@media(max-width:950px){.contact-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.personal-contact,.leadership-invite{align-items:flex-start;flex-direction:column}}
 @media(max-width:560px){.contact-grid{grid-template-columns:1fr}.personal-contact{padding:1.3rem}.personal-contact__actions{width:100%;flex-direction:column}.action-link{width:100%}}
 </style>

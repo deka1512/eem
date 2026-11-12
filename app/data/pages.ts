@@ -9,6 +9,7 @@ export interface ContentSection {
 
 export interface StaticPage {
   title: string
+  heroImage: string
   eyebrow: string
   heroTitle: string
   intro: string
@@ -25,6 +26,7 @@ export interface StaticPage {
  */
 export const staticPages: Record<string, StaticPage> = {
   eglise: {
+    heroImage: 'https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=2200&q=85',
     title: 'L’Église',
     eyebrow: 'Qui sommes-nous ?',
     heroTitle: 'Une communauté rassemblée autour de l’Évangile.',
@@ -61,12 +63,21 @@ export const staticPages: Record<string, StaticPage> = {
           'Que vous soyez déjà engagé dans la foi chrétienne, en recherche spirituelle ou simplement désireux de découvrir l’Église, vous pouvez prendre contact avec nous.',
           'Nous vous invitons à venir découvrir la communauté et à échanger avec l’Église.'
         ]
+      },
+      {
+        title: 'Un leadership au service de la communauté',
+        paragraphs: [
+          'Dans l’Évangile, la responsabilité ne se comprend pas comme une recherche de position, mais comme un engagement au service des autres.',
+          'Un leadership chrétien s’exerce avec humilité, fidélité à la Parole, sens de l’écoute et souci de la communauté. Les fonctions et les personnes qui les portent seront présentées nominativement après validation de l’Église.'
+        ],
+        reference: 'Marc 10:42-45'
       }
     ],
     actionLabel: 'Nous contacter',
     actionTo: '/contact'
   },
   'vie-de-leglise': {
+    heroImage: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2200&q=85',
     title: 'Vie de l’Église',
     eyebrow: 'Foi et communion',
     heroTitle: 'Une foi qui se partage et se construit ensemble.',
@@ -95,12 +106,21 @@ export const staticPages: Record<string, StaticPage> = {
           'Les annonces, événements et temps forts confirmés par l’Église seront présentés dans cette rubrique.',
           'Pour obtenir une information à jour ou préparer votre visite, contactez directement l’équipe de l’Église.'
         ]
+      },
+      {
+        title: 'Chacun peut contribuer',
+        paragraphs: [
+          'La vie communautaire ne repose pas sur une seule personne. Chacun peut encourager, accueillir, prier, partager ses compétences et prendre part au bien commun selon ses possibilités.',
+          'Le service chrétien commence souvent par des gestes simples, accomplis avec amour et fidélité.'
+        ],
+        reference: '1 Pierre 4:10'
       }
     ],
     actionLabel: 'Consulter les actualités',
     actionTo: '/actualites'
   },
   enseignements: {
+    heroImage: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=2200&q=85',
     title: 'Enseignements',
     eyebrow: 'La Parole au centre',
     heroTitle: 'Écouter, comprendre et mettre la Parole en pratique.',
@@ -128,12 +148,21 @@ export const staticPages: Record<string, StaticPage> = {
           'Nous encourageons chacun à examiner les enseignements à la lumière des Écritures, à poursuivre sa lecture personnelle et à échanger avec maturité.'
         ],
         reference: 'Actes 17:11'
+      },
+      {
+        title: 'Comprendre pour mieux mettre en pratique',
+        paragraphs: [
+          'Lire un passage biblique dans son contexte aide à mieux saisir son message. Il est utile de tenir compte du texte, de son destinataire et de l’ensemble de l’enseignement des Écritures.',
+          'La croissance spirituelle se poursuit lorsque ce qui est entendu nourrit la réflexion et inspire les choix du quotidien.'
+        ],
+        reference: 'Jacques 1:22'
       }
     ],
     actionLabel: 'Contacter l’Église',
     actionTo: '/contact'
   },
   actualites: {
+    heroImage: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2200&q=85',
     title: 'Actualités',
     eyebrow: 'La vie de notre communauté',
     heroTitle: 'Les nouvelles et les temps forts de l’Église.',
@@ -152,12 +181,20 @@ export const staticPages: Record<string, StaticPage> = {
         paragraphs: [
           'En attendant les prochaines publications sur ce site, vous pouvez retrouver les communications de l’Église sur sa page Facebook officielle.'
         ]
+      },
+      {
+        title: 'Des nouvelles partagées avec discernement',
+        paragraphs: [
+          'Les informations diffusées sur ce site ont vocation à être utiles, compréhensibles et vérifiables. Les publications qui concernent des personnes sont partagées dans le respect de leur dignité et de leur accord.',
+          'Pour les informations urgentes ou les précisions pratiques, privilégiez les coordonnées officielles de l’Église.'
+        ]
       }
     ],
     actionLabel: 'Suivre l’EEM sur Facebook',
     actionTo: church.facebookUrl
   },
   contact: {
+    heroImage: 'https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=2200&q=85',
     title: 'Contact',
     eyebrow: 'Nous sommes à votre écoute',
     heroTitle: 'Prenons contact.',
@@ -179,6 +216,7 @@ export const staticPages: Record<string, StaticPage> = {
     ]
   },
   priere: {
+    heroImage: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2200&q=85',
     title: 'Demande de prière',
     eyebrow: 'Nous voulons vous écouter',
     heroTitle: 'Vous pouvez partager votre sujet de prière.',
@@ -203,6 +241,7 @@ export const staticPages: Record<string, StaticPage> = {
     actionTo: '/contact'
   },
   'rendez-vous': {
+    heroImage: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2200&q=85',
     title: 'Demander un rendez-vous',
     eyebrow: 'Échange et accompagnement',
     heroTitle: 'Besoin d’un temps d’échange ?',

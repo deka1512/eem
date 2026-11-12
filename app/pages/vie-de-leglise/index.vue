@@ -13,12 +13,8 @@ useSeoMeta({
 
 <template>
   <section class="listing-page">
+    <PageHero :eyebrow="page.eyebrow" :title="page.heroTitle" :description="page.intro" :image="page.heroImage" :breadcrumb="page.title" />
     <PageContainer>
-      <header class="listing-hero">
-        <p class="eyebrow">{{ page.eyebrow }}</p>
-        <h1>{{ page.heroTitle }}</h1>
-        <p>{{ page.intro }}</p>
-      </header>
 
       <div v-if="events.length" class="cards-grid">
         <CardEvent v-for="item in events" :key="item.slug" :item="item" />
@@ -45,10 +41,7 @@ useSeoMeta({
 </template>
 
 <style scoped>
-.listing-page{min-height:60vh;padding-block:clamp(3.5rem,7vw,5.5rem)}
-.listing-hero{max-width:820px;margin-bottom:3rem}
-.listing-hero h1{margin:.6rem 0 1rem;font-size:clamp(2.35rem,5vw,4rem)}
-.listing-hero>p:last-child{max-width:760px;color:var(--eem-text-muted);font-size:1.08rem}
+.listing-page{min-height:60vh;padding-bottom:clamp(3.5rem,7vw,5.5rem)}
 .cards-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1.4rem}
 .empty-state{display:grid;justify-items:center;max-width:760px;margin:0 auto;padding:3rem 2rem;border:1px solid var(--eem-border);border-radius:1.2rem;background:var(--eem-surface);text-align:center}
 .empty-state__icon{display:grid;width:3.5rem;height:3.5rem;place-items:center;border-radius:1rem;background:#fff;color:var(--eem-secondary);font-size:1.6rem}
