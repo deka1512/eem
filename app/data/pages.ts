@@ -167,8 +167,8 @@ export const staticPages: Record<string, StaticPage> = {
     title: 'Actualités',
     eyebrow: 'La vie de notre communauté',
     heroTitle: 'Les nouvelles et les temps forts de l’Église.',
-    intro: 'Retrouvez ici les annonces, informations et retours en images communiqués par l’Église Évangélique Les Moissonneurs.',
-    description: 'Les annonces et nouvelles officielles de l’Église Évangélique Les Moissonneurs.',
+    intro: 'Découvrez des articles autour de la foi chrétienne, de la prière, de la mission et de la vie communautaire. Les annonces pratiques seront publiées après confirmation par l’Église.',
+    description: 'Articles d’édification, ressources bibliques et annonces confirmées de l’Église Évangélique Les Moissonneurs.',
     sections: [
       {
         title: 'Une information claire et vérifiée',
