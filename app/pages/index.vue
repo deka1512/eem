@@ -315,8 +315,8 @@ useSeoMeta({
 </template>
 
 <style scoped>
-.home-hero{position:relative;isolation:isolate;overflow:hidden;min-height:680px;background:#06384b url('https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=2200&q=90') center 42%/cover no-repeat;color:#fff}
-.home-hero::before{position:absolute;inset:0;background:linear-gradient(90deg,rgb(3 31 43 / 93%) 0%,rgb(3 31 43 / 78%) 54%,rgb(3 31 43 / 28%) 100%);content:""}
+.home-hero{position:relative;isolation:isolate;overflow:hidden;min-height:680px;background:#06384b url('/hero acceuil.jpg') center 42%/cover no-repeat;color:#fff}
+.home-hero::before{position:absolute;inset:0;background:linear-gradient(90deg,rgb(3 31 43 / 91%) 0%,rgb(3 31 43 / 80%) 54%,rgb(3 31 43 / 48%) 100%);content:""}
 .home-hero :deep(.page-container){position:relative;z-index:1;display:flex;min-height:680px;align-items:center;padding-block:clamp(4rem,8vw,6rem)}
 .home-hero__content{max-width:820px}
 .home-hero .eyebrow{color:#b9e6f0}
@@ -334,7 +334,7 @@ useSeoMeta({
 .welcome-copy>p:not(.eyebrow){max-width:650px;color:var(--eem-text-muted)}
 .welcome-copy :deep(.base-button){margin-top:.8rem}
 .pastor-feature{overflow:hidden;border:1px solid var(--eem-border);border-radius:1.2rem;background:#fff;box-shadow:var(--eem-shadow-card)}
-.pastor-feature__portrait{display:flex;min-height:290px;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;background:radial-gradient(circle at 50% 35%,#1e7182 0,#0b4356 48%,#062e40 100%);color:#fff}
+.pastor-feature__portrait{display:flex;min-height:290px;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;background:linear-gradient(rgb(3 31 43 / 38%),rgb(3 31 43 / 38%)),url('/past nestor mingina.jpg') center 28%/cover no-repeat;color:#fff}
 .pastor-feature__portrait>span{display:grid;width:116px;height:116px;place-items:center;border:1px solid rgb(255 255 255 / 42%);border-radius:50%;background:rgb(255 255 255 / 10%);font-family:var(--eem-font-heading);font-size:2.8rem;font-weight:800;letter-spacing:.04em}
 .pastor-feature__portrait small{color:rgb(255 255 255 / 72%);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
 .pastor-feature__caption{padding:1.5rem}

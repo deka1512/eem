@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { church } from '~/data/church'
+
+const churchInfo = computed(() => church)
 
 useSeoMeta({
   title: 'Offrandes et dons | Église Évangélique Les Moissonneurs',
@@ -15,7 +18,7 @@ useSeoMeta({
       eyebrow="Générosité et engagement"
       title="Offrandes et dons"
       description="Soutenir l’œuvre de Dieu avec un cœur libre, dans la foi, la reconnaissance et la transparence."
-      image="https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2200&q=85"
+      image="/hero don.jpg"
       breadcrumb="Offrandes et dons"
     />
 
@@ -58,13 +61,13 @@ useSeoMeta({
             <p>Pour le moment, aucun numéro de compte, portefeuille mobile ou moyen de paiement n’est publié sur cette page. Contactez directement l’EEM afin de recevoir les informations vérifiées avant d’effectuer un don.</p>
           </div>
           <div class="giving-page__actions">
-            <a :href="church.whatsappLink" target="_blank" rel="noopener noreferrer" class="giving-action giving-action--primary"><UIcon name="i-lucide-message-circle" /> Écrire sur WhatsApp</a>
-            <a :href="church.phoneLink" class="giving-action"><UIcon name="i-lucide-phone" /> Appeler l’Église</a>
-            <a :href="'mailto:' + church.email" class="giving-action"><UIcon name="i-lucide-mail" /> Envoyer un e-mail</a>
+            <a :href="churchInfo.whatsappLink" target="_blank" rel="noopener noreferrer" class="giving-action giving-action--primary"><UIcon name="i-lucide-message-circle" /> Écrire sur WhatsApp</a>
+            <a :href="churchInfo.phoneLink" class="giving-action"><UIcon name="i-lucide-phone" /> Appeler l’Église</a>
+            <a :href="'mailto:' + churchInfo.email" class="giving-action"><UIcon name="i-lucide-mail" /> Envoyer un e-mail</a>
           </div>
         </section>
 
-        <p class="giving-page__address"><UIcon name="i-lucide-map-pin" /> {{ church.address }}</p>
+        <p class="giving-page__address"><UIcon name="i-lucide-map-pin" /> {{ churchInfo.address }}</p>
       </PageContainer>
     </section>
   </div>

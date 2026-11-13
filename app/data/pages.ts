@@ -26,7 +26,7 @@ export interface StaticPage {
  */
 export const staticPages: Record<string, StaticPage> = {
   eglise: {
-    heroImage: 'https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=2200&q=85',
+    heroImage: '/hero eglise.jpg',
     title: 'L’Église',
     eyebrow: 'Qui sommes-nous ?',
     heroTitle: 'Une communauté rassemblée autour de l’Évangile.',
@@ -78,7 +78,7 @@ export const staticPages: Record<string, StaticPage> = {
     actionTo: '/contact'
   },
   'vie-de-leglise': {
-    heroImage: 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2200&q=85',
+    heroImage: '/hero eglise.jpg',
     title: 'Vie de l’Église',
     eyebrow: 'Foi et communion',
     heroTitle: 'Une foi qui se partage et se construit ensemble.',
@@ -163,7 +163,7 @@ export const staticPages: Record<string, StaticPage> = {
     actionTo: '/contact'
   },
   actualites: {
-    heroImage: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=2200&q=85',
+    heroImage: '/actualites hero.jpg',
     title: 'Actualités',
     eyebrow: 'La vie de notre communauté',
     heroTitle: 'Les nouvelles et les temps forts de l’Église.',
@@ -195,7 +195,7 @@ export const staticPages: Record<string, StaticPage> = {
     actionTo: church.facebookUrl
   },
   contact: {
-    heroImage: 'https://images.unsplash.com/photo-1438032005730-c779502df39b?auto=format&fit=crop&w=2200&q=85',
+    heroImage: '/hero contact.jpg',
     title: 'Contact',
     eyebrow: 'Nous sommes à votre écoute',
     heroTitle: 'Prenons contact.',
@@ -231,7 +231,7 @@ export const staticPages: Record<string, StaticPage> = {
     ]
   },
   priere: {
-    heroImage: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=2200&q=85',
+    heroImage: '/hero contact.jpg',
     title: 'Demande de prière',
     eyebrow: 'Nous voulons vous écouter',
     heroTitle: 'Vous pouvez partager votre sujet de prière.',
@@ -271,7 +271,7 @@ export const staticPages: Record<string, StaticPage> = {
     actionTo: '/contact'
   },
   'rendez-vous': {
-    heroImage: 'https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=2200&q=85',
+    heroImage: '/hero contact.jpg',
     title: 'Demander un rendez-vous',
     eyebrow: 'Échange et accompagnement',
     heroTitle: 'Besoin d’un temps d’échange ?',

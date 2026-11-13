@@ -11,7 +11,7 @@ defineProps<{item:SermonItem}>()
 <span class="sermon-card__play"><UIcon name="i-lucide-play" /></span>
 </NuxtLink>
 <div class="sermon-card__body">
-<p class="sermon-card__date">{{formatDate(item.preachedAt)}}</p><h3><NuxtLink :to="`/enseignements/${item.slug}`">{{item.title}}</NuxtLink></h3>
+<p v-if="item.preachedAt" class="sermon-card__date">{{formatDate(item.preachedAt)}}</p><h3><NuxtLink :to="`/enseignements/${item.slug}`">{{item.title}}</NuxtLink></h3>
 <p class="sermon-card__preacher">{{item.preacher}}</p>
 <p v-if="item.scripture" class="sermon-card__scripture">{{item.scripture}}</p>
 <p v-if="item.description" class="sermon-card__description">{{item.description}}</p>

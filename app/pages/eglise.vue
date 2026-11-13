@@ -10,7 +10,7 @@ const announcements = [
     title: 'Moisson 21',
     subtitle: '9e jour · Temps fort de la communauté',
     description: 'Retrouvez les moments partagés autour de ce programme spirituel dans les communications de l’Église.',
-    image: 'https://images.unsplash.com/photo-1511632765486-a01980e01a18?auto=format&fit=crop&w=1100&q=85',
+    image: '/moisson 21.jpg',
     alt: 'Groupe de personnes réunies lors d’un événement communautaire — visuel d’illustration',
   },
   {
@@ -18,7 +18,7 @@ const announcements = [
     title: 'Jeudi Mahombi',
     subtitle: 'Un rendez-vous de prière',
     description: 'Un temps pour se rassembler, prier, chercher Dieu et grandir dans la communion fraternelle.',
-    image: 'https://images.unsplash.com/photo-1507692049790-de58290a4334?auto=format&fit=crop&w=1100&q=85',
+    image: '/jeudi mahombi.jpg',
     alt: 'Personne dans un moment de prière — visuel d’illustration',
   },
   {
@@ -26,7 +26,7 @@ const announcements = [
     title: 'École d’affermissement',
     subtitle: 'Remise des diplômes',
     description: 'Un moment de reconnaissance qui met à l’honneur le parcours de formation et l’engagement des participants.',
-    image: 'https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1100&q=85',
+    image: '/hero acceuil.jpg',
     alt: 'Cérémonie de remise de diplômes — visuel d’illustration',
   },
 ]
@@ -203,7 +203,7 @@ useSeoMeta({
 .pastor-section{padding-block:clamp(3rem,6vw,5rem);background:#f2f7f9}
 .pastor-profile{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(2rem,6vw,5rem);align-items:center;padding:clamp(1.3rem,3vw,2.5rem);border:1px solid var(--eem-border);border-radius:1.4rem;background:#fff;box-shadow:0 16px 45px rgb(13 55 72 / 7%)}
 .pastor-profile__visual{overflow:hidden;border-radius:1rem;background:#06384b}
-.pastor-profile__portrait{display:flex;min-height:330px;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;background:radial-gradient(circle at 50% 35%,#23768b,#0b4356 55%,#062e40);color:#fff}
+.pastor-profile__portrait{display:flex;min-height:330px;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;background:linear-gradient(rgb(3 31 43 / 38%),rgb(3 31 43 / 38%)),url('/past nestor mingina.jpg') center 28%/cover no-repeat;color:#fff}
 .pastor-profile__portrait span{display:grid;width:124px;height:124px;place-items:center;border:1px solid rgb(255 255 255 / 45%);border-radius:50%;background:rgb(255 255 255 / 9%);font-size:3rem;font-weight:800}
 .pastor-profile__portrait small{color:rgb(255 255 255 / 72%);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
 .pastor-profile__verse{padding:1.2rem 1.4rem;background:#062e40;color:#fff;font-size:.95rem;font-style:italic}

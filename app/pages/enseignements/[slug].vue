@@ -1,16 +1,18 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import { sermons } from '~/data/sermons'
 
 const route = useRoute()
-const sermon = sermons.find(entry => entry.slug === String(route.params.slug))
-if (!sermon) throw createError({ statusCode: 404, statusMessage: 'Enseignement introuvable' })
+const foundSermon = sermons.find(entry => entry.slug === String(route.params.slug))
+if (!foundSermon) throw createError({ statusCode: 404, statusMessage: 'Enseignement introuvable' })
+const sermon = computed(() => foundSermon)
 
 useSeoMeta({
-  title: () => sermon.title + ' | Enseignements EEM',
-  description: () => sermon.description || sermon.title,
-  ogTitle: () => sermon.title + ' | EEM',
-  ogDescription: () => sermon.description || sermon.title,
-  ogImage: () => sermon.thumbnail,
+  title: () => sermon.value.title + ' | Enseignements EEM',
+  description: () => sermon.value.description || sermon.value.title,
+  ogTitle: () => sermon.value.title + ' | EEM',
+  ogDescription: () => sermon.value.description || sermon.value.title,
+  ogImage: () => sermon.value.thumbnail,
 })
 </script>
 

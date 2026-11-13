@@ -13,7 +13,7 @@ useSeoMeta({
       eyebrow="Leadership et service"
       title="Servir avec foi, conduire avec humilité."
       description="Le leadership chrétien prend tout son sens lorsqu’il aide chacun à grandir, à trouver sa place et à participer à la mission de l’Évangile."
-      image="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2200&q=85"
+      image="/hero eglise.jpg"
       breadcrumb="Leadership"
     />
 

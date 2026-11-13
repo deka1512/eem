@@ -1,10 +1,12 @@
 <script setup lang="ts">
+import { computed } from 'vue'
 import {events} from '~/data/events'
 import {formatDate} from '~/utils/format-date'
 const route=useRoute()
-const event=events.find(entry=>entry.slug===String(route.params.slug))
-if(!event)throw createError({statusCode:404,statusMessage:'Événement introuvable'})
-useSeoMeta({title:()=>event.title+' | Vie de l’Église',description:()=>event.description})
+const foundEvent=events.find(entry=>entry.slug===String(route.params.slug))
+if(!foundEvent)throw createError({statusCode:404,statusMessage:'Événement introuvable'})
+const event=computed(()=>foundEvent)
+useSeoMeta({title:()=>event.value.title+' | Vie de l’Église',description:()=>event.value.description})
 </script>
 <template><article>
   <PageHero eyebrow="Vie de la communauté" :title="event.title" :description="event.description" :image="event.image || 'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=2200&q=85'" breadcrumb="Vie de l’Église" />

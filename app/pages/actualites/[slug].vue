@@ -4,18 +4,19 @@ import { news } from '~/data/news'
 import { formatDate } from '~/utils/format-date'
 
 const route = useRoute()
-const article = news.find(entry => entry.slug === String(route.params.slug))
-if (!article) throw createError({ statusCode: 404, statusMessage: 'Actualité introuvable' })
+const foundArticle = news.find(entry => entry.slug === String(route.params.slug))
+if (!foundArticle) throw createError({ statusCode: 404, statusMessage: 'Actualité introuvable' })
+const article = computed(() => foundArticle)
 
-const paragraphs = computed(() => article.content?.length ? article.content : [article.excerpt])
-const relatedArticles = computed(() => news.filter(entry => entry.slug !== article.slug).slice(0, 2))
+const paragraphs = computed(() => article.value.content?.length ? article.value.content : [article.value.excerpt])
+const relatedArticles = computed(() => news.filter(entry => entry.slug !== article.value.slug).slice(0, 2))
 
 useSeoMeta({
-  title: () => article.title + ' | Actualités EEM',
-  description: () => article.excerpt,
-  ogTitle: () => article.title + ' | EEM',
-  ogDescription: () => article.excerpt,
-  ogImage: () => article.image,
+  title: () => article.value.title + ' | Actualités EEM',
+  description: () => article.value.excerpt,
+  ogTitle: () => article.value.title + ' | EEM',
+  ogDescription: () => article.value.excerpt,
+  ogImage: () => article.value.image,
 })
 </script>
 

@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { events } from '~/data/events'
-import { staticPages } from '~/data/pages'
+import { staticPages, type StaticPage } from '~/data/pages'
 
-const page = staticPages['vie-de-leglise']
+const page: StaticPage = { ...staticPages['vie-de-leglise']! }
 useSeoMeta({
   title: 'Vie de l’Église | Église Évangélique Les Moissonneurs',
   description: page.description,
