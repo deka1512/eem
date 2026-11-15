@@ -328,10 +328,12 @@ useSeoMeta({
 .welcome-copy>p:not(.eyebrow){max-width:650px;color:var(--eem-text-muted)}
 .welcome-copy :deep(.base-button){margin-top:.8rem}
 .pastor-feature{overflow:hidden;border:1px solid var(--eem-border);border-radius:1.2rem;background:#fff;box-shadow:var(--eem-shadow-card)}
-.pastor-feature__portrait{display:flex;min-height:290px;flex-direction:column;align-items:center;justify-content:center;gap:.8rem;background:linear-gradient(rgb(3 31 43 / 38%),rgb(3 31 43 / 38%)),url('/past nestor mingina.jpg') center 28%/cover no-repeat;color:#fff}
+.pastor-feature__portrait{position:relative;min-height:460px;overflow:hidden;background:#06384b;color:#fff}
+.pastor-feature__portrait img{display:block;width:100%;height:460px;object-fit:cover;object-position:center 24%}
 .pastor-feature__portrait>span{display:grid;width:116px;height:116px;place-items:center;border:1px solid rgb(255 255 255 / 42%);border-radius:50%;background:rgb(255 255 255 / 10%);font-family:var(--eem-font-heading);font-size:2.8rem;font-weight:800;letter-spacing:.04em}
 .pastor-feature__portrait small{color:rgb(255 255 255 / 72%);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase}
 .pastor-feature__caption{padding:1.5rem}
+@media(max-width:600px){.pastor-feature__portrait{min-height:360px}.pastor-feature__portrait img{height:360px}}
 .pastor-feature__caption h3{margin:.35rem 0;font-size:1.35rem}
 .pastor-feature__caption>p:last-child{margin:0;color:var(--eem-text-muted);font-size:.9rem}
 .services-section{background:#f3f8fa}
