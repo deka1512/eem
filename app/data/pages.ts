@@ -121,7 +121,7 @@ export const staticPages: Record<string, StaticPage> = {
     actionTo: '/actualites'
   },
   enseignements: {
-    heroImage: '/hero eglise.jpg',
+    heroImage: 'https://images.unsplash.com/photo-1504052434569-70ad5836ab65?auto=format&fit=crop&w=2200&q=85',
     title: 'Enseignements',
     eyebrow: 'La Parole au centre',
     heroTitle: 'Écouter, comprendre et mettre la Parole en pratique.',
