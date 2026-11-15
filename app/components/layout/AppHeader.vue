@@ -6,7 +6,7 @@ const closeMenu=()=>{isMenuOpen.value=false}
 <template>
 <header class="site-header"><PageContainer><div class="site-header__inner">
 <NuxtLink to="/" class="brand" aria-label="Église Évangélique Les Moissonneurs — Accueil" @click="closeMenu">
-<span class="brand__mark"><UIcon name="i-lucide-wheat" /></span><span class="brand__text"><strong>Les Moissonneurs</strong><small>Église Évangélique · EEM</small></span>
+<span class="brand__mark"><img src="/logo.jpg" alt="Logo de l’Église Évangélique Les Moissonneurs"></span><span class="brand__text"><strong>Les Moissonneurs</strong><small>Église Évangélique · EEM</small></span>
 </NuxtLink>
 <nav class="desktop-nav" aria-label="Navigation principale"><NuxtLink v-for="item in navigation" :key="item.to" :to="item.to" active-class="is-active">{{item.label}}</NuxtLink></nav>
 <NuxtLink to="/offrandes-et-dons" class="header-cta">Offrandes <UIcon name="i-lucide-heart-handshake" /></NuxtLink>
@@ -22,7 +22,7 @@ const closeMenu=()=>{isMenuOpen.value=false}
 .site-header__inner{display:flex;min-height:82px;align-items:center;justify-content:space-between;gap:1.5rem}
 .brand{display:inline-flex;flex:none;align-items:center;gap:.7rem;color:var(--eem-secondary);text-decoration:none}
 .brand__mark{display:grid;width:2.65rem;height:2.65rem;place-items:center;border-radius:.8rem;background:var(--eem-surface);font-size:1.4rem}
-.brand__text{display:grid;line-height:1.2}.brand__text strong{font-family:var(--eem-font-heading);font-size:.95rem;font-weight:800}.brand__text small{margin-top:.25rem;color:var(--eem-text-muted);font-size:.65rem;letter-spacing:.04em}
+.brand__mark img{display:block;width:100%;height:100%;object-fit:contain;border-radius:.65rem}.brand__text{display:grid;line-height:1.2}.brand__text strong{font-family:var(--eem-font-heading);font-size:.95rem;font-weight:800}.brand__text small{margin-top:.25rem;color:var(--eem-text-muted);font-size:.65rem;letter-spacing:.04em}
 .desktop-nav{display:flex;align-items:center;gap:clamp(.8rem,1.5vw,1.4rem)}.desktop-nav a{color:var(--eem-text);font-size:.82rem;font-weight:650;text-decoration:none}.desktop-nav a:hover,.desktop-nav a.is-active{color:var(--eem-primary)}
 .header-cta{display:inline-flex;flex:none;align-items:center;gap:.4rem;border-radius:.6rem;padding:.7rem .9rem;background:var(--eem-primary);color:#fff;font-size:.8rem;font-weight:750;text-decoration:none}.header-cta:hover{background:var(--eem-primary-hover)}
 .menu-toggle{display:none;width:2.7rem;height:2.7rem;place-items:center;border:1px solid var(--eem-border);border-radius:.65rem;background:#fff;color:var(--eem-secondary);font-size:1.25rem}
