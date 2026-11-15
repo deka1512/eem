@@ -40,29 +40,29 @@ const sermonHighlights = [
 const leadershipCards = [
   {
     role: 'Direction pastorale',
-    image: '',
-    imageAlt: 'Portrait officiel du Révérend Pasteur Nestor Mingina à intégrer',
+    image: '/past nestor mingina.jpg',
+    imageAlt: 'Révérend Pasteur Nestor Mingina',
     initials: 'NM',
-    portraitPending: true,
+    portraitPending: false,
   },
   {
     role: 'Responsabilité du département des femmes',
-    image: 'https://assets.lummi.ai/assets/QmVi2THQfyT2UbxMsqysWw3fD4Z5nRgbG9aeLKGiYpaf93?auto=format&w=900',
-    imageAlt: 'Portrait illustratif d’une femme noire en tenue professionnelle',
+    image: '/past femme.jpg',
+    imageAlt: 'Portrait d’une responsable de l’EEM',
     initials: 'F',
     portraitPending: false,
   },
   {
     role: 'Encadrement de la jeunesse',
-    image: 'https://bigdot.ai/assets/img/bayo.jpeg',
-    imageAlt: 'Portrait illustratif d’un homme noir en costume',
+    image: '/past 1.jpg',
+    imageAlt: 'Portrait d’un responsable pastoral de l’EEM',
     initials: 'J',
     portraitPending: false,
   },
   {
     role: 'Accueil et communion fraternelle',
-    image: 'https://d9svxltna2b8m.cloudfront.net/activestorage-public-asset/6zg0gepg98qagphw2sslko7lxpd2',
-    imageAlt: 'Portrait illustratif d’une femme noire souriante',
+    image: '/past 2.jpg',
+    imageAlt: 'Portrait d’une collaboratrice de l’EEM',
     initials: 'A',
     portraitPending: false,
   },
@@ -141,8 +141,7 @@ useSeoMeta({
           </div>
           <aside class="pastor-feature">
             <div class="pastor-feature__portrait">
-              <span>NM</span>
-              <small>Portrait officiel à intégrer</small>
+              <img src="/past nestor mingina.jpg" alt="Révérend Pasteur Nestor Mingina" loading="lazy">
             </div>
             <div class="pastor-feature__caption">
               <p class="eyebrow">Direction pastorale</p>
@@ -229,21 +228,16 @@ useSeoMeta({
         <div class="leadership-grid">
           <article v-for="person in leadershipCards" :key="person.role" class="leader-card">
             <div class="leader-card__image">
-              <div v-if="person.portraitPending" class="leader-card__placeholder">
-                <span>{{ person.initials }}</span>
-                <small>Portrait officiel à intégrer</small>
-              </div>
-              <img v-else :src="person.image" :alt="person.imageAlt" loading="lazy">
+              <img :src="person.image" :alt="person.imageAlt" loading="lazy">
             </div>
             <div class="leader-card__content">
               <p class="leader-card__eyebrow">Domaine de responsabilité</p>
               <h3>{{ person.role }}</h3>
-              <span v-if="person.portraitPending" class="leader-card__status">Révérend Pasteur Nestor Mingina</span>
-              <span v-else class="leader-card__status">Portrait d’illustration · Nom à confirmer</span>
+              <span class="leader-card__status">{{ person.role === 'Direction pastorale' ? 'Révérend Pasteur Nestor Mingina' : 'Équipe de service de l’EEM' }}</span>
             </div>
           </article>
         </div>
-        <p class="leadership-note">Les portraits secondaires sont des visuels d’illustration et ne représentent pas les responsables de l’EEM. Les domaines présentés sont des repères de mise en page, pas un organigramme officiel ; les noms et fonctions seront ajoutés après validation.</p>
+        <p class="leadership-note">Les photographies proviennent des visuels de l’EEM. Les domaines présentés sont des repères de service ; les noms et fonctions détaillés seront publiés après validation.</p>
         <div class="leadership-more"><BaseButton to="/leadership" variant="secondary">Découvrir le leadership <UIcon name="i-lucide-arrow-right" /></BaseButton></div>
       </PageContainer>
     </section>
