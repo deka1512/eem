@@ -11,7 +11,7 @@ withDefaults(defineProps<{
 </script>
 
 <template>
-  <section class="page-hero" :style="{ '--hero-image': 'url(' + image + ')' }">
+  <section class="page-hero" :style="{ '--hero-image': 'url(&quot;' + image + '&quot;)' }">
     <PageContainer>
       <nav v-if="breadcrumb" class="page-hero__breadcrumb" aria-label="Fil d’Ariane">
         <NuxtLink to="/">Accueil</NuxtLink>
