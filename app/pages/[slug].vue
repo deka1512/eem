@@ -16,12 +16,12 @@ const whatsappUrl = church.whatsappLink
 const actionIsExternal = page.actionTo?.startsWith('http') ?? false
 
 const illustrativeLeaders = [
-  { name: 'Pasteur Joël Mbuyi', role: 'Accompagnement pastoral', image: 'https://images.pexels.com/photos/26903320/pexels-photo-26903320.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’un homme africain en costume' },
-  { name: 'Maman Grâce Ilunga', role: 'Département des femmes', image: 'https://images.pexels.com/photos/5668768/pexels-photo-5668768.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’une femme noire en tenue professionnelle' },
-  { name: 'Frère Patrick Kabasele', role: 'Jeunesse et formation', image: 'https://images.pexels.com/photos/33844626/pexels-photo-33844626.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’un homme africain en costume' },
-  { name: 'Sœur Esther Kabeya', role: 'Accueil et intégration', image: 'https://images.pexels.com/photos/12008288/pexels-photo-12008288.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’une femme africaine élégante' },
-  { name: 'Évangéliste David Tshibangu', role: 'Évangélisation et mission', image: 'https://images.pexels.com/photos/14124056/pexels-photo-14124056.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’un homme africain en costume' },
-  { name: 'Maman Ruth Kalombo', role: 'Prière et accompagnement', image: 'https://images.pexels.com/photos/20610322/pexels-photo-20610322.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’une femme noire élégante' }
+  { name: 'Équipe pastorale', role: 'Accompagnement pastoral', image: '/past 1.jpg', alt: 'Portrait d’un membre de l’équipe pastorale de l’EEM' },
+  { name: 'Département des femmes', role: 'Accompagnement et service', image: '/past femme.jpg', alt: 'Portrait d’une responsable de l’EEM' },
+  { name: 'Équipe pastorale', role: 'Jeunesse et formation', image: '/past 2.jpg', alt: 'Portrait d’un membre de l’équipe pastorale de l’EEM' },
+  { name: 'Ministères et services', role: 'Accueil et intégration', image: '/past 3.jpg', alt: 'Portrait d’un collaborateur de l’EEM' },
+  { name: 'Équipe pastorale', role: 'Évangélisation et mission', image: '/past 4.jpg', alt: 'Portrait d’un membre de l’équipe pastorale de l’EEM' },
+  { name: 'Ministères et services', role: 'Prière et accompagnement', image: '/past 5.jpg', alt: 'Portrait d’un collaborateur de l’EEM' }
 ]
 const mapsUrl = 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(church.address)
 
@@ -78,8 +78,7 @@ useSeoMeta({
           <section class="pastor-profile">
             <div class="pastor-profile__visual">
               <div class="pastor-profile__portrait">
-                <span>NM</span>
-                <small>Portrait officiel à intégrer</small>
+                <img src="/past nestor mingina.jpg" alt="Révérend Pasteur Nestor Mingina" loading="lazy">
               </div>
               <div class="pastor-profile__verse">« Le bon berger donne sa vie pour ses brebis. »<strong>Jean 10:11</strong></div>
             </div>
@@ -113,7 +112,7 @@ useSeoMeta({
                 </div>
               </article>
             </div>
-            <p class="church-leadership__notice">Noms et fonctions de présentation, à titre de maquette. Ils ne désignent pas les responsables officiellement confirmés de l’EEM. Les portraits sont des visuels d’illustration et seront remplacés par les photos autorisées de l’équipe réelle.</p>
+            <p class="church-leadership__notice">Les photographies présentées proviennent des fichiers de l’EEM. Les noms et fonctions détaillés des responsables seront ajoutés après validation officielle.</p>
             <div class="church-leadership__action"><BaseButton to="/leadership" variant="secondary">Voir les domaines de service <UIcon name="i-lucide-arrow-right" /></BaseButton></div>
           </section>
 
@@ -178,7 +177,7 @@ useSeoMeta({
 .pastor-profile{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(2rem,6vw,5rem);align-items:center;margin-top:5rem;padding:clamp(1.3rem,3vw,2.5rem);border:1px solid var(--eem-border);border-radius:1.35rem;background:linear-gradient(135deg,#f2f9fb,#fff 65%);box-shadow:var(--eem-shadow-card)}
 .pastor-profile__visual{overflow:hidden;border-radius:1rem;background:#06384b}
 .pastor-profile__portrait{display:flex;min-height:340px;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;background:radial-gradient(circle at 50% 35%,#23768b,#0b4356 55%,#062e40);color:#fff}
-.pastor-profile__portrait span{display:grid;width:124px;height:124px;place-items:center;border:1px solid rgb(255 255 255 / 45%);border-radius:50%;background:rgb(255 255 255 / 9%);font-family:var(--eem-font-heading);font-size:3rem;font-weight:800}
+.pastor-profile__portrait img{display:block;width:100%;height:100%;min-height:340px;object-fit:cover;object-position:center 25%}.pastor-profile__portrait span{display:grid;width:124px;height:124px;place-items:center;border:1px solid rgb(255 255 255 / 45%);border-radius:50%;background:rgb(255 255 255 / 9%);font-family:var(--eem-font-heading);font-size:3rem;font-weight:800}
 .pastor-profile__portrait small{color:rgb(255 255 255 / 72%);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
 .pastor-profile__verse{padding:1.2rem 1.4rem;background:#062e40;color:#fff;font-family:var(--eem-font-heading);font-size:.95rem;font-style:italic}
 .pastor-profile__verse strong{display:block;margin-top:.45rem;color:#d9b98c;font-family:var(--eem-font-body);font-size:.75rem;font-style:normal}
