@@ -176,8 +176,8 @@ useSeoMeta({
 
 .pastor-profile{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(2rem,6vw,5rem);align-items:center;margin-top:5rem;padding:clamp(1.3rem,3vw,2.5rem);border:1px solid var(--eem-border);border-radius:1.35rem;background:linear-gradient(135deg,#f2f9fb,#fff 65%);box-shadow:var(--eem-shadow-card)}
 .pastor-profile__visual{overflow:hidden;border-radius:1rem;background:#06384b}
-.pastor-profile__portrait{display:flex;min-height:340px;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;background:radial-gradient(circle at 50% 35%,#23768b,#0b4356 55%,#062e40);color:#fff}
-.pastor-profile__portrait img{display:block;width:100%;height:100%;min-height:340px;object-fit:cover;object-position:center 25%}.pastor-profile__portrait span{display:grid;width:124px;height:124px;place-items:center;border:1px solid rgb(255 255 255 / 45%);border-radius:50%;background:rgb(255 255 255 / 9%);font-family:var(--eem-font-heading);font-size:3rem;font-weight:800}
+.pastor-profile__portrait{min-height:460px;overflow:hidden;background:#06384b;color:#fff}
+.pastor-profile__portrait img{display:block;width:100%;height:460px;object-fit:cover;object-position:center 24%}.pastor-profile__portrait span{display:grid;width:124px;height:124px;place-items:center;border:1px solid rgb(255 255 255 / 45%);border-radius:50%;background:rgb(255 255 255 / 9%);font-family:var(--eem-font-heading);font-size:3rem;font-weight:800}
 .pastor-profile__portrait small{color:rgb(255 255 255 / 72%);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
 .pastor-profile__verse{padding:1.2rem 1.4rem;background:#062e40;color:#fff;font-family:var(--eem-font-heading);font-size:.95rem;font-style:italic}
 .pastor-profile__verse strong{display:block;margin-top:.45rem;color:#d9b98c;font-family:var(--eem-font-body);font-size:.75rem;font-style:normal}
@@ -210,6 +210,6 @@ useSeoMeta({
 .giving-invite__copy p:last-child{max-width:700px;margin:0;color:rgb(255 255 255 / 78%);font-size:.9rem}
 .giving-invite :deep(.base-button){flex:none}
 @media(max-width:900px){.pastor-profile{grid-template-columns:1fr}.pastor-profile__visual{max-width:540px;width:100%}.church-leadership__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.giving-invite{align-items:flex-start;flex-wrap:wrap}.giving-invite__copy{min-width:calc(100% - 6rem)}}
-@media(max-width:560px){.church-section-heading{align-items:flex-start}.church-section-heading__symbol{display:none}.church-leadership__grid{grid-template-columns:1fr}.church-leader-card__image{height:340px}.giving-invite{flex-direction:column}.giving-invite__copy{min-width:0}.giving-invite :deep(.base-button){width:100%}.pastor-profile__portrait{min-height:270px}}
+@media(max-width:560px){.church-section-heading{align-items:flex-start}.church-section-heading__symbol{display:none}.church-leadership__grid{grid-template-columns:1fr}.church-leader-card__image{height:340px}.giving-invite{flex-direction:column}.giving-invite__copy{min-width:0}.giving-invite :deep(.base-button){width:100%}.pastor-profile__portrait{min-height:360px}.pastor-profile__portrait img{height:360px}}
 
 </style>
