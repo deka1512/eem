@@ -14,8 +14,8 @@ export const leadershipAreas: LeadershipArea[] = [
   {
     title: 'Direction pastorale',
     description: 'Porter une vision spirituelle centrée sur Jésus-Christ, enseigner la Parole et accompagner la communauté avec écoute et discernement.',
-    image: '/hero eglise.jpg',
-    imageAlt: 'Espace de rassemblement dans une église',
+    image: '/past nestor mingina.jpg',
+    imageAlt: 'Révérend Pasteur Nestor Mingina',
     reference: 'Marc 10:42-45'
   },
   {
