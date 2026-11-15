@@ -38,8 +38,9 @@ withDefaults(defineProps<{
   background-image:
     linear-gradient(90deg, rgb(3 31 43 / 90%) 0%, rgb(3 31 43 / 76%) 52%, rgb(3 31 43 / 36%) 100%),
     var(--hero-image);
-  background-position: center;
+  background-position: center center;
   background-size: cover;
+  background-repeat: no-repeat;
 }
 .page-hero :deep(.page-container) {
   position: relative;
