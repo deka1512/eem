@@ -32,12 +32,12 @@ const announcements = [
 ]
 
 const leaders = [
-  { name: 'Pasteur Joël Mbuyi', role: 'Accompagnement pastoral', image: 'https://images.pexels.com/photos/26903320/pexels-photo-26903320.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’un homme africain en costume' },
-  { name: 'Maman Grâce Ilunga', role: 'Département des femmes', image: 'https://images.pexels.com/photos/5668768/pexels-photo-5668768.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’une femme noire en tenue professionnelle' },
-  { name: 'Frère Patrick Kabasele', role: 'Jeunesse et formation', image: 'https://images.pexels.com/photos/33844626/pexels-photo-33844626.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’un homme africain en costume' },
-  { name: 'Sœur Esther Kabeya', role: 'Accueil et intégration', image: 'https://images.pexels.com/photos/12008288/pexels-photo-12008288.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’une femme africaine élégante' },
-  { name: 'Évangéliste David Tshibangu', role: 'Évangélisation et mission', image: 'https://images.pexels.com/photos/14124056/pexels-photo-14124056.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’un homme africain en costume' },
-  { name: 'Maman Ruth Kalombo', role: 'Prière et accompagnement', image: 'https://images.pexels.com/photos/20610322/pexels-photo-20610322.jpeg?auto=compress&cs=tinysrgb&w=900', alt: 'Portrait illustratif d’une femme noire élégante' },
+  { name: 'Direction pastorale', role: 'Accompagnement spirituel et enseignement', image: '/past 1.jpg', alt: 'Portrait d’un responsable pastoral de l’EEM' },
+  { name: 'Département des femmes', role: 'Engagement et accompagnement des femmes', image: '/past femme.jpg', alt: 'Portrait d’une responsable de l’EEM' },
+  { name: 'Équipe pastorale', role: 'Enseignement et formation biblique', image: '/past 2.jpg', alt: 'Portrait d’un membre de l’équipe pastorale de l’EEM' },
+  { name: 'Ministères et services', role: 'Accueil et communion fraternelle', image: '/past 3.jpg', alt: 'Portrait d’un collaborateur de l’EEM' },
+  { name: 'Équipe pastorale', role: 'Évangélisation et mission', image: '/past 4.jpg', alt: 'Portrait d’un membre de l’équipe pastorale de l’EEM' },
+  { name: 'Ministères et services', role: 'Prière et accompagnement', image: '/past 5.jpg', alt: 'Portrait d’un collaborateur de l’EEM' },
 ]
 
 useSeoMeta({
@@ -76,7 +76,7 @@ useSeoMeta({
             <a class="announcement-card__visual" :href="church.facebookUrl" target="_blank" rel="noopener noreferrer" :aria-label="'Voir les actualités de l’EEM : ' + item.title">
               <img :src="item.image" :alt="item.alt" :loading="index === 0 ? 'eager' : 'lazy'">
               <span class="announcement-card__number">0{{ index + 1 }}</span>
-              <span class="announcement-card__image-label">Visuel d’illustration</span>
+              <span class="announcement-card__image-label">Photographie de l’EEM</span>
             </a>
             <div class="announcement-card__body">
               <p class="announcement-card__category">{{ item.category }}</p>
@@ -89,7 +89,7 @@ useSeoMeta({
             </div>
           </article>
         </div>
-        <p class="announcements-note">Les photos de cette sélection sont des illustrations. Les clichés des événements seront intégrés à partir des publications officielles validées par l’Église.</p>
+        <p class="announcements-note">Les images de cette sélection proviennent des fichiers photographiques disponibles pour l’EEM.</p>
       </PageContainer>
     </section>
 
@@ -109,8 +109,7 @@ useSeoMeta({
         <div class="pastor-profile">
           <div class="pastor-profile__visual">
             <div class="pastor-profile__portrait">
-              <span>NM</span>
-              <small>Portrait officiel à intégrer</small>
+              <img src="/past nestor mingina.jpg" alt="Révérend Pasteur Nestor Mingina" loading="lazy">
             </div>
             <div class="pastor-profile__verse">« Le bon berger donne sa vie pour ses brebis. »<strong>Jean 10:11</strong></div>
           </div>
@@ -204,7 +203,7 @@ useSeoMeta({
 .pastor-profile{display:grid;grid-template-columns:.82fr 1.18fr;gap:clamp(2rem,6vw,5rem);align-items:center;padding:clamp(1.3rem,3vw,2.5rem);border:1px solid var(--eem-border);border-radius:1.4rem;background:#fff;box-shadow:0 16px 45px rgb(13 55 72 / 7%)}
 .pastor-profile__visual{overflow:hidden;border-radius:1rem;background:#06384b}
 .pastor-profile__portrait{display:flex;min-height:330px;flex-direction:column;align-items:center;justify-content:center;gap:.9rem;background:linear-gradient(rgb(3 31 43 / 38%),rgb(3 31 43 / 38%)),url('/past nestor mingina.jpg') center 28%/cover no-repeat;color:#fff}
-.pastor-profile__portrait span{display:grid;width:124px;height:124px;place-items:center;border:1px solid rgb(255 255 255 / 45%);border-radius:50%;background:rgb(255 255 255 / 9%);font-size:3rem;font-weight:800}
+.pastor-profile__portrait img{display:block;width:100%;height:100%;min-height:340px;object-fit:cover;object-position:center 25%}.pastor-profile__portrait span{display:grid;width:124px;height:124px;place-items:center;border:1px solid rgb(255 255 255 / 45%);border-radius:50%;background:rgb(255 255 255 / 9%);font-size:3rem;font-weight:800}
 .pastor-profile__portrait small{color:rgb(255 255 255 / 72%);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase}
 .pastor-profile__verse{padding:1.2rem 1.4rem;background:#062e40;color:#fff;font-size:.95rem;font-style:italic}
 .pastor-profile__verse strong{display:block;margin-top:.45rem;color:#d9b98c;font-size:.75rem;font-style:normal}
