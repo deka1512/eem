@@ -54,7 +54,7 @@ jobs:
           find .output/public -maxdepth 2 -type f | head -40
 
       - name: Deploy to o2switch with FTPS
-        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run)
+        if: ${{ github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && inputs.dry_run == false) }}
         uses: SamKirkland/FTP-Deploy-Action@v4.4.0
         with:
           server: ${{ secrets.FTP_SERVER }}
@@ -70,4 +70,4 @@ jobs:
 
       - name: Explain manual dry run
         if: github.event_name == 'workflow_dispatch' && inputs.dry_run
-        run: echo "Simulation terminée : le site a été généré et vérifié, aucun fichier n'a été envoyé.";
+        run: echo "Simulation terminée : le site a été généré et vérifié, aucun fichier n'a été envoyé."
