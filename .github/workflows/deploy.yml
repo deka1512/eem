@@ -70,4 +70,5 @@ jobs:
 
       - name: Explain manual dry run
         if: github.event_name == 'workflow_dispatch' && inputs.dry_run
-        run: echo "Simulation terminée : le site a été généré et vérifié, aucun fichier n'a été envoyé."
+        run: >-
+          echo "Simulation terminée : le site a été généré et vérifié, aucun fichier n'a été envoyé."
