@@ -1,0 +1,73 @@
+name: EEM - CI and deploy to o2switch
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Simuler le transfert FTPS sans modifier le serveur"
+        required: true
+        type: boolean
+        default: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: eem-production
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Verify and generate Nuxt site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js 24
+        uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: TypeScript and Nuxt typecheck
+        run: npm run typecheck
+
+      - name: Generate static production site
+        run: npm run generate
+
+      - name: Verify generated website
+        run: |
+          test -s .output/public/index.html
+          echo "Generated files:"
+          du -sh .output/public
+          find .output/public -maxdepth 2 -type f | head -40
+
+      - name: Deploy to o2switch with FTPS
+        if: github.event_name == 'push' || (github.event_name == 'workflow_dispatch' && !inputs.dry_run)
+        uses: SamKirkland/FTP-Deploy-Action@v4.4.0
+        with:
+          server: ${{ secrets.FTP_SERVER }}
+          username: ${{ secrets.FTP_USERNAME }}
+          password: ${{ secrets.FTP_PASSWORD }}
+          protocol: ftps
+          port: 21
+          server-dir: ${{ vars.FTP_TARGET_DIR }}
+          local-dir: .output/public/
+          dangerous-clean-slate: false
+          log-level: standard
+          timeout: 120000
+
+      - name: Explain manual dry run
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run
+        run: echo "Simulation terminée : le site a été généré et vérifié, aucun fichier n'a été envoyé.";
